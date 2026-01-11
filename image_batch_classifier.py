@@ -42,7 +42,7 @@ client = genai.Client(api_key=API_KEY)
 
 
 OUTPUT_CLASSIFICATIONS_DIR = Path("output/classifications_batch")
-OUTPUT_SELECTED_DIR = Path("output/selected_batch")
+SELECTED_SUBDIR_NAME = "selected"
 
 
 def safe_filename_part(s: str) -> str:
@@ -345,7 +345,7 @@ def main() -> None:
     # 선택 파일 복사 + meta 병합
     selected = out.get("selected") if isinstance(out, dict) else None
     if isinstance(selected, dict):
-        out_sel_dir = OUTPUT_SELECTED_DIR / str(sno)
+        out_sel_dir = product_dir / SELECTED_SUBDIR_NAME
         copied = copy_selected_files(product_dir, out_sel_dir, selected)
         print(f"📁 copied: {out_sel_dir} ({len(copied)} files)")
         update_meta_with_extracted(product_dir, selected)

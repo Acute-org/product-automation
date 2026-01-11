@@ -1,6 +1,8 @@
+import argparse
 import base64
 import json
 import re
+import sys
 from pathlib import Path
 import httpx
 from PIL import Image
@@ -21,13 +23,179 @@ MIN_REVIEW_COUNT = 100
 MIN_POSITIVE_PERCENT = 95
 MAX_PRODUCTS = 10
 
-CATEGORIES = {
-    "자켓": 293,
-    "코트": 294,
-    "패딩": 295,
-    "점퍼": 296,
-    "가디건": 297,
+# ably 카테고리 API(overviewCategories) 기준
+# - 여기서 "아우터/상의/팬츠/스커트/원피스"는 depth 1(상위)이고,
+# - 실제 수집은 그 하위 subCategoryList(depth 2) 기준으로 순회한다.
+#
+# 주의: subCategoryList의 item.sno(예: 926x)는 화면용 id이고,
+# 실제 next_token에 들어가는 category_sno는 logging.analytics.CATEGORY_SNO 값(예: 293)이다.
+CATEGORIES: dict[str, dict] = {
+    "아우터": {
+        "sno": 7,
+        "subcategories": {
+            "가디건": 16,
+            "자켓": 293,
+            "집업/점퍼": 294,
+            "바람막이": 497,
+            "코트": 296,
+            "플리스": 577,
+            "야상": 496,
+            "패딩": 297,
+        },
+    },
+    "상의": {
+        "sno": 8,
+        "subcategories": {
+            "후드": 500,
+            "맨투맨": 300,
+            "니트": 299,
+            "셔츠": 499,
+            "긴소매티셔츠": 498,
+            "블라우스": 298,
+            "조끼": 357,
+            "반소매티셔츠": 18,
+            "민소매": 21,
+        },
+    },
+    "팬츠": {
+        "sno": 174,
+        "subcategories": {
+            "롱팬츠": 176,
+            "슬랙스": 178,
+            "데님": 501,
+            "숏팬츠": 177,
+        },
+    },
+    "스커트": {
+        "sno": 203,
+        "subcategories": {
+            "미디/롱스커트": 205,
+            "미니 스커트": 204,
+        },
+    },
+    # API 상 이름은 "원피스/세트" 이지만, 사용 편의상 "원피스" 키로 둠
+    "원피스": {
+        "sno": 10,
+        "api_name": "원피스/세트",
+        "subcategories": {
+            "롱원피스": 207,
+            "투피스": 208,
+            "점프수트": 533,
+            "미니원피스": 206,
+        },
+    },
 }
+
+
+def _build_category_targets(
+    category_name: str, subcategory_name: str | None
+) -> list[tuple[str, int]]:
+    """상위/하위 카테고리 선택을 실제 수집 타겟(라벨, category_sno) 리스트로 변환."""
+    if category_name not in CATEGORIES:
+        raise KeyError(f"Unknown category_name: {category_name}")
+
+    cat = CATEGORIES[category_name]
+    subs: dict[str, int] = cat.get("subcategories") or {}  # type: ignore[assignment]
+
+    if subcategory_name:
+        if subcategory_name not in subs:
+            raise KeyError(
+                f"Unknown subcategory_name for {category_name}: {subcategory_name}"
+            )
+        return [(f"{category_name}/{subcategory_name}", int(subs[subcategory_name]))]
+
+    # subcategories가 있으면 하위를 전부 순회, 없으면 상위(자체)로 수집
+    if subs:
+        return [(f"{category_name}/{name}", int(sno)) for name, sno in subs.items()]
+
+    return [(category_name, int(cat["sno"]))]
+
+
+def _build_all_category_targets() -> list[tuple[str, int]]:
+    """모든 상위/하위 카테고리를 수집 타겟(라벨, category_sno) 리스트로 변환."""
+    targets: list[tuple[str, int]] = []
+    for category_name, cat in CATEGORIES.items():
+        subs: dict[str, int] = cat.get("subcategories") or {}  # type: ignore[assignment]
+        if subs:
+            targets.extend(
+                (f"{category_name}/{name}", int(sno)) for name, sno in subs.items()
+            )
+        else:
+            targets.append((category_name, int(cat["sno"])))
+    return targets
+
+
+def _prompt_choice(title: str, options: list[str]) -> str:
+    """터미널에서 번호/이름으로 선택을 받아 options 중 하나를 반환."""
+    while True:
+        print("\n" + title)
+        for i, opt in enumerate(options, 1):
+            print(f"  {i}. {opt}")
+        raw = input("선택(번호 또는 이름): ").strip()
+
+        if not raw:
+            print("  [!] 입력이 비어있어요. 다시 선택해 주세요.")
+            continue
+
+        # 번호 선택
+        if raw.isdigit():
+            idx = int(raw)
+            if 1 <= idx <= len(options):
+                return options[idx - 1]
+            print("  [!] 범위를 벗어났어요. 다시 선택해 주세요.")
+            continue
+
+        # 이름 선택(정확히 일치)
+        if raw in options:
+            return raw
+
+        # 부분 일치 1개면 허용
+        matches = [o for o in options if raw in o]
+        if len(matches) == 1:
+            return matches[0]
+
+        print("  [!] 매칭되는 항목이 없어요. 다시 선택해 주세요.")
+
+
+def _choose_category_interactive() -> tuple[str | None, str | None, bool]:
+    """실행 시 카테고리를 선택(상위/하위/전체)하는 인터랙티브 메뉴."""
+    top_options = ["전체(아우터/상의/팬츠/스커트/원피스)"] + list(CATEGORIES.keys())
+    picked_top = _prompt_choice("상위 카테고리를 선택하세요:", top_options)
+
+    if picked_top.startswith("전체"):
+        return None, None, True
+
+    category_name = picked_top
+    cat = CATEGORIES[category_name]
+    subs: dict[str, int] = cat.get("subcategories") or {}  # type: ignore[assignment]
+    if not subs:
+        return category_name, None, False
+
+    sub_options = ["전체"] + list(subs.keys())
+    picked_sub = _prompt_choice(
+        f"하위 카테고리를 선택하세요 ({category_name}):", sub_options
+    )
+    if picked_sub == "전체":
+        return category_name, None, False
+    return category_name, picked_sub, False
+
+
+def _parse_args(argv: list[str]) -> argparse.Namespace:
+    p = argparse.ArgumentParser(description="Ably 상품 수집기")
+    p.add_argument("--all", action="store_true", help="모든 상위/하위 카테고리를 수집")
+    p.add_argument("--category", type=str, help="상위 카테고리 (예: 아우터)")
+    p.add_argument(
+        "--subcategory",
+        type=str,
+        help="하위 카테고리 (예: 자켓). --category와 함께 사용",
+    )
+    p.add_argument(
+        "--no-prompt",
+        action="store_true",
+        help="프롬프트 없이 실행 (옵션 미지정 시 기본값 사용)",
+    )
+    return p.parse_args(argv)
+
 
 HEADERS = {
     "accept": "application/json, text/plain, */*",
@@ -593,12 +761,47 @@ def save_results(products: list[dict]) -> None:
     print(f"\n💾 결과 저장: {output_file}")
 
 
-def main():
-    category_name = "자켓"
-    category_sno = CATEGORIES[category_name]
+def main() -> None:
+    args = _parse_args(sys.argv[1:])
 
-    # 1. 상품 검색
-    found_products = fetch_products_by_category(category_sno, category_name)
+    category_name: str | None = args.category
+    subcategory_name: str | None = args.subcategory
+    all_categories: bool = bool(args.all)
+
+    if subcategory_name and not category_name:
+        raise SystemExit("--subcategory는 --category와 함께 사용해야 해요.")
+
+    # 옵션이 명시되지 않았고, 프롬프트 허용이면 실행 시 선택
+    if not args.no_prompt and not all_categories and not category_name:
+        category_name, subcategory_name, all_categories = _choose_category_interactive()
+
+    # 여전히 아무 것도 안 정해졌으면 기본값
+    if not all_categories and not category_name:
+        category_name = "아우터"
+
+    targets = (
+        _build_all_category_targets()
+        if all_categories
+        else _build_category_targets(category_name, subcategory_name)  # type: ignore[arg-type]
+    )
+
+    # 1. 상품 검색 (하위 카테고리들을 순회)
+    found_products: list[dict] = []
+    for label, category_sno in targets:
+        found_products.extend(fetch_products_by_category(category_sno, label))
+
+    # 중복 제거(상품 sno 기준, 순서 유지)
+    unique: list[dict] = []
+    seen: set[int] = set()
+    for p in found_products:
+        sno = p.get("sno")
+        if not isinstance(sno, int):
+            continue
+        if sno in seen:
+            continue
+        seen.add(sno)
+        unique.append(p)
+    found_products = unique
 
     if not found_products:
         print("검색 결과가 없습니다.")

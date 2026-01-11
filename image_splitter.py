@@ -1,4 +1,5 @@
 from pathlib import Path
+import shutil
 from PIL import Image
 import numpy as np
 
@@ -59,6 +60,16 @@ def split_image(
         output_dir = image_path.parent / f"{image_path.stem}_split"
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # 원본 이미지도 분할 결과 폴더에 같이 저장(복사)
+    # (split 조각 파일명과 충돌하지 않도록 별도 이름 사용)
+    original_copy_path = output_dir / f"{image_path.stem}_original{image_path.suffix}"
+    try:
+        if not original_copy_path.exists():
+            shutil.copy2(image_path, original_copy_path)
+    except Exception:
+        # 원본 복사 실패는 분할 자체를 막을 정도는 아니므로 무시
+        pass
+
     # 분할 지점으로 이미지 자르기
     saved_paths = []
     points = [0] + split_points + [height]
@@ -106,7 +117,7 @@ def process_directory(
         if len(split_paths) > 1:
             print(f"  → {len(split_paths)}개로 분할됨")
         else:
-            print(f"  → 분할 불필요")
+            print("  → 분할 불필요")
 
         results[str(image_path)] = split_paths
 
