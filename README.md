@@ -125,6 +125,60 @@ poetry run python image_splitter.py path/to/image.jpg
 poetry run python image_splitter.py path/to/directory/
 ```
 
+### 5) 상품 리뷰 가져오기
+
+`api-examples.md`에 추가한 Review API(`webview/goods/<sno>/reviews/`)를 호출해 리뷰를 JSON으로 저장합니다.
+
+```bash
+poetry run python fetch_reviews.py 52080305
+poetry run python fetch_reviews.py 52080305 --pages 3
+poetry run python fetch_reviews.py 52080305 --max-reviews 50 --pretty
+poetry run python fetch_reviews.py 52080305 --stdout --pretty
+```
+
+### 6) 신상마켓 상품 URL → 상품명(TSV/CSV) 추출
+
+엑셀에서 복사한 **신상마켓 상품 URL 목록**을 넣으면, URL에서 `gid`를 추출해
+`detail` API(`https://abara.sinsang.market/api/v1/goods/<gid>/detail`)를 호출하고 `content.name`(상품명)을 저장합니다.
+
+지원 URL 형태:
+
+- `https://sinsangmarket.kr/sinsangLens?modalGid=<gid>`
+- `https://sinsangmarket.kr/search?...&modalGid=<gid>`
+- `https://sinsangmarket.kr/goods/<gid>/0` (뒤에 `/0` 등 추가 경로가 붙어도 처리)
+
+stdin으로 붙여넣고 TSV 생성:
+
+```bash
+poetry run python sinsang_product_names.py --out sinsang_product_names.tsv
+```
+
+txt 파일로 입력(추천):
+
+```bash
+poetry run python sinsang_product_names.py sinsang-urls.txt --out sinsang_product_names.tsv
+```
+
+상품명만 1열로 출력(엑셀 붙여넣기용, 헤더 없음):
+
+```bash
+poetry run python sinsang_product_names.py --names-only --out sinsang_names.txt
+```
+
+> 실행 시 `access-token`을 입력하라는 프롬프트가 뜹니다(입력 숨김).
+> 현재는 프롬프트 대신 env `SINSANGMARKET_ACCESS_TOKEN`을 사용합니다.
+> `.env` 파일을 루트에 만들고 아래처럼 넣어두면 자동으로 로드됩니다:
+>
+> ```bash
+> SINSANGMARKET_ACCESS_TOKEN="YOUR_TOKEN"
+> ```
+>
+> 필요하면 `--access-token`으로 직접 덮어쓸 수도 있어요:
+>
+> ```bash
+> poetry run python sinsang_product_names.py --access-token "YOUR_TOKEN" --out sinsang_product_names.tsv
+> ```
+
 ## 출력 폴더 구조(요약)
 
 - `output/products.json`
