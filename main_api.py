@@ -10,6 +10,8 @@ BASE_URL = "https://api.a-bly.com/api/v2/screens/SUB_CATEGORY_DEPARTMENT/"
 REVIEW_API_URL = "https://api.a-bly.com/api/v2/goods/{sno}/review_summary/"
 LEGAL_NOTICE_API_URL = "https://api.a-bly.com/api/v2/goods/{sno}/legal_notice/"
 DETAIL_API_URL = "https://api.a-bly.com/api/v3/goods/{sno}/detail/"
+OPTIONS_API_URL = "https://api.a-bly.com/api/v2/goods/{sno}/options/"
+BASIC_API_URL = "https://api.a-bly.com/api/v3/goods/{sno}/basic/"
 
 OUTPUT_DIR = Path("output")
 IMAGES_DIR = OUTPUT_DIR / "images"
@@ -71,13 +73,15 @@ def extract_products_from_response(data: dict) -> list[dict]:
                 continue
             item_entity = item.get("item_entity", {})
             item_data = item_entity.get("item", {})
-            products.append({
-                "sno": item_data.get("sno"),
-                "name": item_data.get("name"),
-                "sell_count": item_data.get("sell_count", 0),
-                "price": item_data.get("price"),
-                "market_name": item_data.get("market_name"),
-            })
+            products.append(
+                {
+                    "sno": item_data.get("sno"),
+                    "name": item_data.get("name"),
+                    "sell_count": item_data.get("sell_count", 0),
+                    "price": item_data.get("price"),
+                    "market_name": item_data.get("market_name"),
+                }
+            )
     return products
 
 
@@ -106,6 +110,80 @@ def fetch_color_info(client: httpx.Client, sno: int) -> str | None:
     except Exception as e:
         print(f"  [!] 색상 정보 조회 실패 (sno={sno}): {e}")
         return None
+
+
+def fetch_legal_notice_meta(client: httpx.Client, sno: int) -> dict:
+    """공시정보 API에서 메타(소재/제조국 등) 가져오기"""
+    try:
+        response = client.get(LEGAL_NOTICE_API_URL.format(sno=sno))
+        response.raise_for_status()
+        data = response.json()
+        return {
+            "color_md": data.get("color_md"),
+            "fabric": data.get("fabric"),
+            "country": data.get("country"),
+        }
+    except Exception as e:
+        print(f"  [!] 공시정보 조회 실패 (sno={sno}): {e}")
+        return {}
+
+
+def fetch_basic_meta(client: httpx.Client, sno: int) -> dict:
+    """기본정보 API에서 가격/썸네일(cover_images) 가져오기"""
+    try:
+        response = client.get(BASIC_API_URL.format(sno=sno))
+        response.raise_for_status()
+        data = response.json()
+        goods = data.get("goods", {})
+        price_info = goods.get("price_info", {}) or {}
+        cover_images = goods.get("cover_images", []) or []
+        # cover_images는 URL 리스트
+        cover_images = [
+            u for u in cover_images if isinstance(u, str) and u.startswith("http")
+        ]
+        return {
+            "price_info": {
+                "consumer": price_info.get("consumer"),
+                "thumbnail_price": price_info.get("thumbnail_price"),
+                "discount_rate": price_info.get("discount_rate"),
+            },
+            "cover_images": cover_images,
+        }
+    except Exception as e:
+        print(f"  [!] 기본정보 조회 실패 (sno={sno}): {e}")
+        return {}
+
+
+def fetch_option_colors(client: httpx.Client, sno: int) -> list[str]:
+    """옵션 정보 API에서 '컬러' 옵션 값 가져오기"""
+    try:
+        response = client.get(OPTIONS_API_URL.format(sno=sno), params={"depth": "1"})
+        response.raise_for_status()
+        data = response.json()
+
+        # 응답 예시는 { "name": "컬러", "option_components": [...] } 형태
+        option_name = data.get("name")
+        # 케이스: "컬러" / "색상" / "Color" 등
+        if option_name not in ("컬러", "색상", "Color", "COLOR"):
+            return []
+
+        colors: list[str] = []
+        for opt in data.get("option_components", []):
+            name = opt.get("name")
+            if isinstance(name, str) and name.strip():
+                colors.append(name.strip())
+
+        # 중복 제거(순서 유지)
+        seen = set()
+        unique: list[str] = []
+        for c in colors:
+            if c not in seen:
+                seen.add(c)
+                unique.append(c)
+        return unique
+    except Exception as e:
+        print(f"  [!] 옵션 색상 조회 실패 (sno={sno}): {e}")
+        return []
 
 
 def clean_image_url(url: str) -> str | None:
@@ -140,7 +218,7 @@ def fetch_detail_images(client: httpx.Client, sno: int) -> list[str]:
                         r'<img[^>]+src="([^"]+)"',
                         r"<img[^>]+src='([^']+)'",
                         r'<img[^>]+src=\\"([^\\]+)\\"',
-                        r'<img[^>]+src=\\&quot;([^&]+)\\&quot;',
+                        r"<img[^>]+src=\\&quot;([^&]+)\\&quot;",
                     ]
                     for pattern in patterns:
                         img_urls = re.findall(pattern, content)
@@ -173,7 +251,37 @@ def download_image(client: httpx.Client, url: str, save_path: Path) -> bool:
         return False
 
 
-def find_split_points(image: Image.Image, threshold: float = 0.98, min_gap: int = 50) -> list[int]:
+def download_cover_images(
+    client: httpx.Client, sno: int, cover_images: list[str]
+) -> list[str]:
+    """basic API의 cover_images(썸네일/대표이미지) 다운로드"""
+    if not cover_images:
+        return []
+
+    product_dir = IMAGES_DIR / str(sno)
+    product_dir.mkdir(parents=True, exist_ok=True)
+
+    downloaded: list[str] = []
+    for idx, url in enumerate(cover_images, 1):
+        ext = "jpg"
+        low = url.lower()
+        if ".png" in low:
+            ext = "png"
+        elif ".webp" in low:
+            ext = "webp"
+        elif ".gif" in low:
+            ext = "gif"
+
+        save_path = product_dir / f"cover_{idx:02d}.{ext}"
+        if download_image(client, url, save_path):
+            downloaded.append(str(save_path))
+
+    return downloaded
+
+
+def find_split_points(
+    image: Image.Image, threshold: float = 0.98, min_gap: int = 50
+) -> list[int]:
     """이미지에서 분할 지점 찾기 (균일한 색상의 가로줄 감지)"""
     img_array = np.array(image.convert("RGB"))
     height, width, _ = img_array.shape
@@ -289,14 +397,51 @@ def download_product_images(client: httpx.Client, product: dict) -> list[str]:
     return all_images
 
 
-def fetch_products_by_category(category_sno: int, category_name: str = "") -> list[dict]:
+def write_product_metadata(product: dict) -> None:
+    """분류 단계에서 사용할 상품 메타데이터를 이미지 폴더에 저장"""
+    sno = product["sno"]
+    product_dir = IMAGES_DIR / str(sno)
+    product_dir.mkdir(parents=True, exist_ok=True)
+
+    meta = {
+        "sno": sno,
+        "name": product.get("name"),
+        "category": product.get("category"),
+        "market_name": product.get("market_name"),
+        "url": product.get("url"),
+        # 옵션 기반 색상(정답 소스)
+        "option_colors": product.get("option_colors") or [],
+        # 참고: 공시정보 색상(콤마 문자열일 수 있음)
+        "legal_notice_colors": product.get("colors"),
+        # 가격 정보 (basic)
+        "price_info": product.get("price_info"),
+        # 소재/제조국 (legal_notice)
+        "fabric": product.get("fabric"),
+        "country": product.get("country"),
+        # 썸네일 URL (basic)
+        "cover_images": product.get("cover_images") or [],
+        # 참고용
+        "sell_count": product.get("sell_count"),
+        "review_count": product.get("review_count"),
+        "positive_percent": product.get("positive_percent"),
+    }
+
+    meta_path = product_dir / "meta.json"
+    meta_path.write_text(
+        json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+
+def fetch_products_by_category(
+    category_sno: int, category_name: str = ""
+) -> list[dict]:
     found_products: list[dict] = []
     checked_snos: set[int] = set()
     next_token = create_initial_token(category_sno)
 
-    print(f"\n{'='*50}")
+    print(f"\n{'=' * 50}")
     print(f"카테고리: {category_name} (sno={category_sno})")
-    print(f"{'='*50}")
+    print(f"{'=' * 50}")
 
     with httpx.Client(headers=HEADERS, timeout=30) as client:
         while len(found_products) < MAX_PRODUCTS:
@@ -321,18 +466,24 @@ def fetch_products_by_category(category_sno: int, category_name: str = "") -> li
                 if product["sell_count"] < MIN_PURCHASE_COUNT:
                     continue
 
-                print(f"검사중: {product['name'][:40]}... ({product['sell_count']:,}개 구매)")
+                print(
+                    f"검사중: {product['name'][:40]}... ({product['sell_count']:,}개 구매)"
+                )
 
                 review = fetch_review_info(client, sno)
                 if not review:
                     continue
 
                 if review["count"] < MIN_REVIEW_COUNT:
-                    print(f"  ❌ 리뷰 수 부족: {review['count']}개 < {MIN_REVIEW_COUNT}개")
+                    print(
+                        f"  ❌ 리뷰 수 부족: {review['count']}개 < {MIN_REVIEW_COUNT}개"
+                    )
                     continue
 
                 if review["positive_percent"] < MIN_POSITIVE_PERCENT:
-                    print(f"  ❌ 긍정률 부족: {review['positive_percent']}% < {MIN_POSITIVE_PERCENT}%")
+                    print(
+                        f"  ❌ 긍정률 부족: {review['positive_percent']}% < {MIN_POSITIVE_PERCENT}%"
+                    )
                     continue
 
                 product["url"] = build_product_url(sno)
@@ -341,7 +492,9 @@ def fetch_products_by_category(category_sno: int, category_name: str = "") -> li
                 product["category"] = category_name
                 found_products.append(product)
 
-                print(f"  ✅ [{len(found_products)}/{MAX_PRODUCTS}] 리뷰 {review['count']}개, 긍정률 {review['positive_percent']}%")
+                print(
+                    f"  ✅ [{len(found_products)}/{MAX_PRODUCTS}] 리뷰 {review['count']}개, 긍정률 {review['positive_percent']}%"
+                )
 
                 if len(found_products) >= MAX_PRODUCTS:
                     break
@@ -359,20 +512,62 @@ def fetch_products_by_category(category_sno: int, category_name: str = "") -> li
 
 def enrich_product_details(products: list[dict]) -> None:
     """상품 상세 정보(색상, 이미지) 추가"""
-    print(f"\n{'='*50}")
+    print(f"\n{'=' * 50}")
     print("상세 정보 수집 중...")
-    print(f"{'='*50}")
+    print(f"{'=' * 50}")
 
     with httpx.Client(headers=HEADERS, timeout=60) as client:
         for i, product in enumerate(products, 1):
             sno = product["sno"]
             print(f"\n[{i}/{len(products)}] {product['name'][:40]}...")
 
-            # 색상 정보
-            color = fetch_color_info(client, sno)
-            product["colors"] = color
-            if color:
-                print(f"  🎨 색상: {color}")
+            # 공시정보(색상/소재/제조국)
+            legal = fetch_legal_notice_meta(client, sno)
+            product["colors"] = legal.get("color_md")
+            product["fabric"] = legal.get("fabric")
+            product["country"] = legal.get("country")
+            if product.get("colors"):
+                print(f"  🎨 색상(공시): {product['colors']}")
+            if product.get("fabric"):
+                print(f"  🧵 소재(혼용률): {product['fabric']}")
+            if product.get("country"):
+                print(f"  🌍 제조국: {product['country']}")
+
+            # 옵션(컬러) 정보: 분류의 정답 소스
+            option_colors = fetch_option_colors(client, sno)
+            product["option_colors"] = option_colors
+            if option_colors:
+                print(f"  🎨 옵션 색상: {', '.join(option_colors)}")
+
+            # 기본정보(가격/썸네일)
+            basic = fetch_basic_meta(client, sno)
+            product["price_info"] = basic.get("price_info")
+            product["cover_images"] = basic.get("cover_images") or []
+            if product.get("price_info"):
+                pi = product["price_info"] or {}
+                cp = pi.get("consumer")
+                tp = pi.get("thumbnail_price")
+                dr = pi.get("discount_rate")
+                msg = []
+                if tp is not None:
+                    msg.append(f"{tp:,}원")
+                if dr is not None:
+                    msg.append(f"{dr}%")
+                if cp is not None:
+                    msg.append(f"(정가 {cp:,}원)")
+                if msg:
+                    print(f"  💰 가격: {' '.join(msg)}")
+
+            # 썸네일(cover_images) 다운로드
+            cover_local = download_cover_images(
+                client, sno, product.get("cover_images") or []
+            )
+            product["cover_images_local"] = cover_local
+            if cover_local:
+                print(f"  🖼️ 썸네일: {len(cover_local)}개 다운로드")
+
+            # 분류 단계에서 사용할 메타데이터 저장
+            write_product_metadata(product)
 
             # 상세 이미지 다운로드
             downloaded = download_product_images(client, product)
@@ -388,7 +583,9 @@ def save_results(products: list[dict]) -> None:
     # 이미지 경로를 상대 경로로 변환
     for product in products:
         if "images" in product:
-            product["images"] = [str(Path(p).relative_to(OUTPUT_DIR)) for p in product["images"]]
+            product["images"] = [
+                str(Path(p).relative_to(OUTPUT_DIR)) for p in product["images"]
+            ]
 
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(products, f, ensure_ascii=False, indent=2)
@@ -420,8 +617,10 @@ def main():
 
     for i, product in enumerate(found_products, 1):
         print(f"\n{i}. {product['name']}")
-        print(f"   구매: {product['sell_count']:,}개 | 리뷰: {product['review_count']}개 | 긍정률: {product['positive_percent']}%")
-        print(f"   색상: {product.get('colors', 'N/A')}")
+        print(
+            f"   구매: {product['sell_count']:,}개 | 리뷰: {product['review_count']}개 | 긍정률: {product['positive_percent']}%"
+        )
+        print(f"   색상: {product.get('option_colors', 'N/A')}")
         print(f"   이미지: {len(product.get('images', []))}개")
         print(f"   {product['url']}")
 

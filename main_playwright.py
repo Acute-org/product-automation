@@ -1,8 +1,7 @@
 import asyncio
 import re
 from playwright.async_api import async_playwright
-from playwright_stealth import Stealth 
-
+from playwright_stealth import Stealth
 
 
 TARGET_URL = "https://m.a-bly.com/screens?screen_name=SUB_CATEGORY_DEPARTMENT&next_token=eyJsIjogIkRlcGFydG1lbnRDYXRlZ29yeVJlYWx0aW1lUmFua0dlbmVyYXRvciIsICJwIjogeyJkZXBhcnRtZW50X3R5cGUiOiAiQ0FURUdPUlkiLCAiY2F0ZWdvcnlfc25vIjogMjkzfSwgImQiOiAiQ0FURUdPUlkiLCAicHJldmlvdXNfc2NyZWVuX25hbWUiOiAiT1ZFUlZJRVciLCAiY2F0ZWdvcnlfc25vIjogMjkzfQ%3D%3D&category_list%5B%5D=293&sorting_type=POPULAR"
@@ -68,12 +67,16 @@ async def main():
 
                     if product_url not in found_products:
                         found_products.append(product_url)
-                        print(f"[{len(found_products)}/{MAX_PRODUCTS}] {count:,}개 구매중 - {product_url}")
+                        print(
+                            f"[{len(found_products)}/{MAX_PRODUCTS}] {count:,}개 구매중 - {product_url}"
+                        )
 
                     processed_indices.add(idx)
 
                     await page.goto(TARGET_URL)
-                    await page.locator("text=/\\d+개 구매중/").first.wait_for(timeout=30000)
+                    await page.locator("text=/\\d+개 구매중/").first.wait_for(
+                        timeout=30000
+                    )
                     await page.evaluate(f"window.scrollTo(0, {scroll_position})")
                     await asyncio.sleep(0.3)
 
