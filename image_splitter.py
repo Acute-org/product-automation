@@ -3,7 +3,9 @@ from PIL import Image
 import numpy as np
 
 
-def find_split_points(image: Image.Image, threshold: float = 0.98, min_gap: int = 50) -> list[int]:
+def find_split_points(
+    image: Image.Image, threshold: float = 0.98, min_gap: int = 20
+) -> list[int]:
     """이미지에서 분할 지점 찾기 (균일한 색상의 가로줄 감지)"""
     img_array = np.array(image.convert("RGB"))
     height, width, _ = img_array.shape
@@ -36,7 +38,9 @@ def find_split_points(image: Image.Image, threshold: float = 0.98, min_gap: int 
     return split_points
 
 
-def split_image(image_path: Path, output_dir: Path | None = None, min_height: int = 100) -> list[Path]:
+def split_image(
+    image_path: Path, output_dir: Path | None = None, min_height: int = 100
+) -> list[Path]:
     """이미지를 분할하고 저장"""
     image = Image.open(image_path)
     width, height = image.size
@@ -84,7 +88,9 @@ def split_image(image_path: Path, output_dir: Path | None = None, min_height: in
     return saved_paths
 
 
-def process_directory(input_dir: Path, output_dir: Path | None = None) -> dict[str, list[Path]]:
+def process_directory(
+    input_dir: Path, output_dir: Path | None = None
+) -> dict[str, list[Path]]:
     """디렉토리 내 모든 이미지 처리"""
     results = {}
     image_extensions = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
