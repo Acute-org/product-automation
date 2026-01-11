@@ -2,6 +2,7 @@ import argparse
 import base64
 import json
 import re
+import shutil
 import sys
 from pathlib import Path
 import httpx
@@ -485,53 +486,63 @@ def find_split_points(
 def split_image(image_path: Path, min_height: int = 100) -> list[Path]:
     """이미지를 분할하고 저장 (원본 파일 대체)"""
     try:
-        image = Image.open(image_path)
+        with Image.open(image_path) as image:
+            width, height = image.size
+
+            # 세로로 긴 이미지가 아니면 분할 불필요
+            if height < width * 1.5:
+                return [image_path]
+
+            split_points = find_split_points(image)
+            if not split_points:
+                return [image_path]
+
+            # 분할 지점으로 이미지 자르기
+            saved_paths: list[Path] = []
+            points = [0] + split_points + [height]
+            stem = image_path.stem
+            suffix = image_path.suffix.lower()
+            parent = image_path.parent
+
+            for i in range(len(points) - 1):
+                top = points[i]
+                bottom = points[i + 1]
+
+                if bottom - top < min_height:
+                    continue
+
+                cropped = image.crop((0, top, width, bottom))
+
+                # JPEG는 RGBA 지원 안함 → RGB로 변환
+                if suffix in [".jpg", ".jpeg"] and cropped.mode == "RGBA":
+                    # 흰색 배경에 합성
+                    background = Image.new("RGB", cropped.size, (255, 255, 255))
+                    background.paste(cropped, mask=cropped.split()[3])
+                    cropped = background
+
+                output_path = parent / f"{stem}_{i + 1:02d}{suffix}"
+                cropped.save(output_path)
+                saved_paths.append(output_path)
+
+        # 분할 성공시: 원본을 백업으로 보관한 뒤 원본 삭제
+        if len(saved_paths) > 1:
+            backup_path = (
+                image_path.parent / f"{image_path.stem}_original{image_path.suffix}"
+            )
+            try:
+                if not backup_path.exists():
+                    shutil.copy2(image_path, backup_path)
+            except Exception:
+                # 백업 복사 실패 시 원본을 삭제하면 안 됨
+                print(f"    [!] 원본 백업 실패: {image_path} (원본 유지)")
+            else:
+                # 백업이 있으면 원본 삭제
+                if backup_path.exists():
+                    image_path.unlink()
+
+        return saved_paths
     except Exception:
         return [image_path]
-
-    width, height = image.size
-
-    # 세로로 긴 이미지가 아니면 분할 불필요
-    if height < width * 1.5:
-        return [image_path]
-
-    split_points = find_split_points(image)
-
-    if not split_points:
-        return [image_path]
-
-    # 분할 지점으로 이미지 자르기
-    saved_paths = []
-    points = [0] + split_points + [height]
-    stem = image_path.stem
-    suffix = image_path.suffix.lower()
-    parent = image_path.parent
-
-    for i in range(len(points) - 1):
-        top = points[i]
-        bottom = points[i + 1]
-
-        if bottom - top < min_height:
-            continue
-
-        cropped = image.crop((0, top, width, bottom))
-
-        # JPEG는 RGBA 지원 안함 → RGB로 변환
-        if suffix in [".jpg", ".jpeg"] and cropped.mode == "RGBA":
-            # 흰색 배경에 합성
-            background = Image.new("RGB", cropped.size, (255, 255, 255))
-            background.paste(cropped, mask=cropped.split()[3])
-            cropped = background
-
-        output_path = parent / f"{stem}_{i + 1:02d}{suffix}"
-        cropped.save(output_path)
-        saved_paths.append(output_path)
-
-    # 분할 성공시 원본 삭제
-    if len(saved_paths) > 1:
-        image_path.unlink()
-
-    return saved_paths
 
 
 def download_product_images(client: httpx.Client, product: dict) -> list[str]:

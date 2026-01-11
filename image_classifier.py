@@ -577,18 +577,17 @@ async def process_product_async(
     # 2-1. 추출된 소재/혼용률을 meta.json에 병합 저장 (fallback 용)
     update_product_metadata_with_extracted_composition(product_dir, result)
 
-    # 3. 결과 저장
-    if output_dir:
-        output_dir.mkdir(parents=True, exist_ok=True)
-        output_file = output_dir / f"{product_dir.name}_classification.json"
-        with open(output_file, "w", encoding="utf-8") as f:
-            json.dump(result, f, ensure_ascii=False, indent=2)
-        print(f"  💾 저장: {output_file}")
+    # 3. 결과 저장 (상품 폴더에 같이 저장)
+    # - output_dir 인자는 과거 호환을 위해 남겨두되, 저장 위치는 product_dir로 고정
+    output_file = product_dir / "classification.json"
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(result, f, ensure_ascii=False, indent=2)
+    print(f"  💾 저장: {output_file}")
 
     return result
 
 
-SELECTED_DIR = Path("output/selected")
+SELECTED_SUBDIR_NAME = "selected"
 
 
 def safe_filename_part(s: str) -> str:
@@ -602,11 +601,10 @@ def safe_filename_part(s: str) -> str:
     return s or "unknown"
 
 
-def copy_selected_images(result: dict) -> tuple[Path, list[str]]:
-    """선택된 이미지를 별도 폴더에 복사"""
-    product_sno = result["product_sno"]
-    product_dir = SELECTED_DIR / product_sno
-    product_dir.mkdir(parents=True, exist_ok=True)
+def copy_selected_images(result: dict, product_dir: Path) -> tuple[Path, list[str]]:
+    """선택된 이미지를 상품 폴더 하위(selected/)에 복사"""
+    out_dir = product_dir / SELECTED_SUBDIR_NAME
+    out_dir.mkdir(parents=True, exist_ok=True)
 
     selected = result.get("selected", {})
     copied_files = []
@@ -615,7 +613,7 @@ def copy_selected_images(result: dict) -> tuple[Path, list[str]]:
     for color, item in selected.get("worn_shots_by_color", {}).items():
         src = Path(item["file_path"])
         safe_color = safe_filename_part(color)
-        dst = product_dir / f"worn_{safe_color}{src.suffix}"
+        dst = out_dir / f"worn_{safe_color}{src.suffix}"
         shutil.copy2(src, dst)
         copied_files.append(f"worn_{safe_color}{src.suffix}")
 
@@ -623,7 +621,7 @@ def copy_selected_images(result: dict) -> tuple[Path, list[str]]:
     for color, item in selected.get("product_shots_by_color", {}).items():
         src = Path(item["file_path"])
         safe_color = safe_filename_part(color)
-        dst = product_dir / f"product_{safe_color}{src.suffix}"
+        dst = out_dir / f"product_{safe_color}{src.suffix}"
         shutil.copy2(src, dst)
         copied_files.append(f"product_{safe_color}{src.suffix}")
 
@@ -639,7 +637,7 @@ def copy_selected_images(result: dict) -> tuple[Path, list[str]]:
     for cat, item in selected.get("representative_details", {}).items():
         src = Path(item["file_path"])
         name = detail_name_map.get(cat, cat)
-        dst = product_dir / f"{name}{src.suffix}"
+        dst = out_dir / f"{name}{src.suffix}"
         # 중복 방지 (product_front가 이미 복사됐을 수 있음)
         if not dst.exists():
             shutil.copy2(src, dst)
@@ -656,15 +654,15 @@ def copy_selected_images(result: dict) -> tuple[Path, list[str]]:
             continue
         src = Path(item["file_path"])
         name = info_name_map.get(key, f"info_{key}")
-        dst = product_dir / f"{name}{src.suffix}"
+        dst = out_dir / f"{name}{src.suffix}"
         if not dst.exists():
             shutil.copy2(src, dst)
             copied_files.append(f"{name}{src.suffix}")
 
-    return product_dir, copied_files
+    return out_dir, copied_files
 
 
-def print_summary(result: dict):
+def print_summary(result: dict, product_dir: Path):
     """분류 결과 요약 출력 및 선택 이미지 복사"""
     print(f"\n{'=' * 50}")
     print(f"📊 분류 결과 요약: 상품 {result['product_sno']}")
@@ -719,13 +717,15 @@ def print_summary(result: dict):
 
     # 선택된 이미지 복사
     if result.get("selected"):
-        product_dir, copied_files = copy_selected_images(result)
-        print(f"\n📁 선택 이미지 복사: {product_dir}")
+        out_dir, copied_files = copy_selected_images(result, product_dir)
+        print(f"\n📁 선택 이미지 복사: {out_dir}")
         for f in copied_files:
             print(f"    - {f}")
 
 
-async def process_all_products_async(images_dir: Path, output_dir: Path) -> list[dict]:
+async def process_all_products_async(
+    images_dir: Path, output_dir: Path | None
+) -> list[dict]:
     """모든 상품 이미지 처리 (비동기)"""
     results = []
 
@@ -738,10 +738,16 @@ async def process_all_products_async(images_dir: Path, output_dir: Path) -> list
         print(f"\n[{i}/{len(product_dirs)}] 상품 {product_dir.name}")
         result = await process_product_async(product_dir, output_dir)
         results.append(result)
-        print_summary(result)
+        print_summary(result, product_dir)
 
     # 전체 결과 저장
-    summary_file = output_dir / "all_products_summary.json"
+    # - output_dir이 없으면 images_dir 아래에 저장
+    summary_file = (
+        (output_dir / "all_products_summary.json")
+        if output_dir
+        else (images_dir / "all_products_summary.json")
+    )
+    summary_file.parent.mkdir(parents=True, exist_ok=True)
     with open(summary_file, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
     print(f"\n💾 전체 요약 저장: {summary_file}")
@@ -758,21 +764,19 @@ async def main_async():
         print("  전체 상품: python image_classifier.py --all")
         return
 
-    output_dir = Path("output/classifications")
-
     if sys.argv[1] == "--all":
         images_dir = Path("output/images")
         if not images_dir.exists():
             print(f"Error: Directory not found: {images_dir}")
             return
-        await process_all_products_async(images_dir, output_dir)
+        await process_all_products_async(images_dir, output_dir=None)
     else:
         product_dir = Path(sys.argv[1])
         if not product_dir.exists():
             print(f"Error: Directory not found: {product_dir}")
             return
-        result = await process_product_async(product_dir, output_dir)
-        print_summary(result)
+        result = await process_product_async(product_dir, output_dir=None)
+        print_summary(result, product_dir)
 
 
 def main():
