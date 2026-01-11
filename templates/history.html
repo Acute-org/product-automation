@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>히스토리</title>
+    <style>
+      body {
+        font-family: ui-sans-serif, system-ui, -apple-system;
+        margin: 0;
+        background: #0b1020;
+        color: #e7ecff;
+      }
+      a {
+        color: #9db4ff;
+        text-decoration: none;
+      }
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+      .card {
+        background: #121a33;
+        border: 1px solid #24305e;
+        border-radius: 14px;
+        padding: 16px;
+      }
+      .muted {
+        color: #9aa7d8;
+        font-size: 13px;
+      }
+      button {
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: 1px solid #2f3c73;
+        background: #1b2a57;
+        color: #e7ecff;
+        cursor: pointer;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .p {
+        background: #0f1630;
+        border: 1px solid #263465;
+        border-radius: 14px;
+        padding: 12px;
+      }
+      .p h3 {
+        margin: 0 0 8px;
+        font-size: 14px;
+        line-height: 1.3;
+      }
+      .pill {
+        font-size: 12px;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: #182554;
+        border: 1px solid #2a3769;
+      }
+      .meta {
+        font-size: 12px;
+        color: #9aa7d8;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 10px;
+        border-bottom: 1px solid #22305f;
+        font-size: 13px;
+        vertical-align: top;
+      }
+      tr:hover {
+        background: rgba(255, 255, 255, 0.03);
+      }
+      @media (max-width: 760px) {
+        .row,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div style="font-size: 18px; font-weight: 700">히스토리</div>
+          <div class="muted">과거 잡 목록 / 저장된 전체 상품 목록</div>
+        </div>
+        <div class="muted"><a href="/">검색으로</a></div>
+      </div>
+
+      <div class="row">
+        <div class="card">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 10px;
+            "
+          >
+            <div style="font-weight: 700">잡 목록</div>
+            <button id="reloadJobs">새로고침</button>
+          </div>
+          <div class="muted" style="margin-top: 6px">
+            클릭하면 해당 잡의 상품을 아래에 표시
+          </div>
+          <div style="margin-top: 10px; overflow: auto">
+            <table>
+              <thead>
+                <tr>
+                  <th>job_id</th>
+                  <th>status</th>
+                  <th>created</th>
+                </tr>
+              </thead>
+              <tbody id="jobs"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 10px;
+            "
+          >
+            <div style="font-weight: 700">전체 상품</div>
+            <button id="reloadProducts">새로고침</button>
+          </div>
+          <div class="muted" style="margin-top: 6px">
+            최근에 본 상품부터 정렬
+          </div>
+          <div id="pstatus" class="muted" style="margin-top: 10px"></div>
+        </div>
+      </div>
+
+      <div id="status" class="muted" style="margin-top: 12px"></div>
+      <div id="results" class="grid"></div>
+    </div>
+
+    <script>
+      const $ = (id) => document.getElementById(id);
+
+      function esc(s) {
+        return String(s ?? "").replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#039;",
+            }[c])
+        );
+      }
+
+      function renderProducts(products) {
+        const root = $("results");
+        root.innerHTML = "";
+        (products || []).forEach((p) => {
+          const sno = p.sno;
+          const name = p.name || "(no name)";
+          const market = p.market_name || "";
+          const url = p.url || "";
+          const category = p.category || "";
+          const cover =
+            p.cover_images && p.cover_images[0] ? p.cover_images[0] : null;
+          const detailCount = (p.detail_images || []).length;
+          const el = document.createElement("div");
+          el.className = "p";
+          el.innerHTML = `
+            <div class="meta" style="margin-bottom:8px;">
+              <span class="pill">#${esc(sno)}</span>
+              ${category ? `<span class="pill">${esc(category)}</span>` : ``}
+              ${market ? `<span class="pill">${esc(market)}</span>` : ``}
+            </div>
+            <h3>${esc(name)}</h3>
+            <div class="meta">
+              <span>상세 이미지 ${detailCount}개</span>
+            </div>
+            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+              ${
+                url
+                  ? `<a href="${esc(
+                      url
+                    )}" target="_blank" rel="noreferrer">상품 페이지</a>`
+                  : ``
+              }
+              ${
+                cover
+                  ? `<a href="${esc(
+                      cover
+                    )}" target="_blank" rel="noreferrer">썸네일(링크)</a>`
+                  : ``
+              }
+            </div>
+          `;
+          root.appendChild(el);
+        });
+      }
+
+      async function loadJobs() {
+        const res = await fetch("/v1/jobs?limit=50&offset=0");
+        const data = await res.json();
+        const tbody = $("jobs");
+        tbody.innerHTML = "";
+        (data.jobs || []).forEach((j) => {
+          const tr = document.createElement("tr");
+          tr.style.cursor = "pointer";
+          const created = new Date((j.created_at || 0) * 1000).toLocaleString();
+          tr.innerHTML = `<td>${esc(j.job_id)}</td><td>${esc(
+            j.status
+          )}</td><td>${esc(created)}</td>`;
+          tr.addEventListener("click", async () => {
+            $("status").textContent = `잡 ${j.job_id} 로딩중...`;
+            const pr = await fetch(`/v1/jobs/${j.job_id}/products`);
+            const pd = await pr.json();
+            $("status").textContent = `잡 ${j.job_id}: ${pd.count}개`;
+            renderProducts(pd.products);
+          });
+          tbody.appendChild(tr);
+        });
+      }
+
+      async function loadAllProducts() {
+        const res = await fetch("/v1/products?limit=50&offset=0");
+        const data = await res.json();
+        $("pstatus").textContent = `총 ${data.total}개 중 ${data.count}개 표시`;
+        renderProducts(data.products);
+      }
+
+      $("reloadJobs").addEventListener("click", () =>
+        loadJobs().catch((e) => {
+          $("status").textContent = `잡 로드 실패: ${e.message || e}`;
+        })
+      );
+      $("reloadProducts").addEventListener("click", () =>
+        loadAllProducts().catch((e) => {
+          $("status").textContent = `상품 로드 실패: ${e.message || e}`;
+        })
+      );
+
+      loadJobs().catch(
+        (e) => ($("status").textContent = `잡 로드 실패: ${e.message || e}`)
+      );
+      loadAllProducts().catch(
+        (e) => ($("status").textContent = `상품 로드 실패: ${e.message || e}`)
+      );
+    </script>
+  </body>
+</html>

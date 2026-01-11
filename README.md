@@ -46,6 +46,44 @@ poetry install
 
 ## 사용법
 
+## 웹 API 서버 (FastAPI)
+
+`main_api.py`와 유사한 수집 기능을 **웹 API**로 제공합니다.
+이미지 **splitting/다운로드는 포함하지 않습니다**. **이미지 URL만 저장**합니다.
+또한 잡/상품 히스토리를 **SQLite(DB_PATH)** 로 영속하고, 기본값으로 **과거에 이미 수집한 상품(sno)은 새 잡에서 자동 제외**합니다.
+
+### 로컬 실행
+
+```bash
+poetry install
+poetry run uvicorn web_api:app --host 0.0.0.0 --port 8080 --reload
+```
+
+- `GET /healthz`
+- `GET /v1/categories`
+- `POST /v1/jobs` : 수집 잡 생성(비동기)
+- `GET /v1/jobs` : 잡 목록(최신순)
+- `GET /v1/jobs/{job_id}` : 상태 조회
+- `GET /v1/jobs/{job_id}/result` : 결과 JSON(상품 리스트 포함)
+- `GET /v1/jobs/{job_id}/products` : 결과 상품 리스트만
+
+### Fly.io 배포(컨테이너)
+
+이 repo에는 `Dockerfile`/`fly.toml`이 포함되어 있습니다.
+
+```bash
+fly launch
+fly volumes create crawler_data --size 1 --region nrt
+fly deploy
+```
+
+> Ably API 헤더/토큰이 만료될 수 있으니, 운영에서는 env로 덮어쓰는 걸 권장합니다:
+>
+> - `ABLY_ANON_TOKEN`
+> - `ABLY_DEVICE_ID`
+> - `ABLY_APP_VERSION`
+> - `ABLY_USER_AGENT`
+
 ### 1) 상품/이미지 수집
 
 ```bash
