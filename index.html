@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>에이블리 상품 크롤러</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #1a1a2e 0%,
+          #16213e 50%,
+          #0f3460 100%
+        );
+        min-height: 100vh;
+        color: #e4e4e7;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 8px;
+      }
+
+      .subtitle {
+        color: #a1a1aa;
+        font-size: 1rem;
+      }
+
+      .controls {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 32px;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      label {
+        font-size: 0.85rem;
+        color: #a1a1aa;
+        font-weight: 500;
+      }
+
+      input,
+      select {
+        padding: 12px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        color: #e4e4e7;
+        font-size: 1rem;
+        transition: all 0.2s;
+      }
+
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: #ff6b6b;
+        box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+      }
+
+      select option {
+        background: #1a1a2e;
+        color: #e4e4e7;
+      }
+
+      .btn {
+        padding: 14px 32px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
+        color: white;
+      }
+
+      .btn-primary:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+      }
+
+      .btn-primary:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .btn-stop {
+        background: rgba(255, 255, 255, 0.1);
+        color: #e4e4e7;
+        margin-left: 12px;
+      }
+
+      .btn-stop:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      .status {
+        margin-top: 20px;
+        padding: 16px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        font-family: "SF Mono", Monaco, monospace;
+        font-size: 0.9rem;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+
+      .status-line {
+        padding: 4px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .status-line:last-child {
+        border-bottom: none;
+      }
+
+      .status-success {
+        color: #4ade80;
+      }
+
+      .status-error {
+        color: #f87171;
+      }
+
+      .status-info {
+        color: #60a5fa;
+      }
+
+      .results {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .product-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 107, 107, 0.3);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .product-image {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .product-info {
+        padding: 16px;
+      }
+
+      .product-name {
+        font-size: 0.95rem;
+        font-weight: 500;
+        line-height: 1.4;
+        margin-bottom: 12px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .product-stats {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+      }
+
+      .stat {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 0.8rem;
+        padding: 4px 10px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+      }
+
+      .stat-icon {
+        font-size: 0.9rem;
+      }
+
+      .product-price {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #ff6b6b;
+      }
+
+      .product-market {
+        font-size: 0.8rem;
+        color: #a1a1aa;
+        margin-top: 4px;
+      }
+
+      .product-link {
+        display: block;
+        margin-top: 12px;
+        padding: 10px;
+        text-align: center;
+        background: rgba(255, 107, 107, 0.1);
+        border: 1px solid rgba(255, 107, 107, 0.3);
+        border-radius: 8px;
+        color: #ff6b6b;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s;
+      }
+
+      .product-link:hover {
+        background: rgba(255, 107, 107, 0.2);
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        color: #71717a;
+      }
+
+      .progress-bar {
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        margin-top: 16px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #ff6b6b, #feca57);
+        border-radius: 2px;
+        transition: width 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>에이블리 상품 크롤러</h1>
+        <p class="subtitle">인기 상품을 필터링하여 찾아보세요</p>
+      </header>
+
+      <div class="controls">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>카테고리</label>
+            <select id="category">
+              <option value="293">자켓</option>
+              <option value="294">코트</option>
+              <option value="295">패딩</option>
+              <option value="296">점퍼</option>
+              <option value="297">가디건</option>
+              <option value="298">베스트</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>최소 구매수</label>
+            <input type="number" id="minPurchase" value="2000" min="0" />
+          </div>
+          <div class="form-group">
+            <label>최소 리뷰수</label>
+            <input type="number" id="minReview" value="100" min="0" />
+          </div>
+          <div class="form-group">
+            <label>최소 긍정률 (%)</label>
+            <input
+              type="number"
+              id="minPositive"
+              value="95"
+              min="0"
+              max="100"
+            />
+          </div>
+          <div class="form-group">
+            <label>검색 개수</label>
+            <input type="number" id="maxProducts" value="10" min="1" max="50" />
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center">
+          <button
+            class="btn btn-primary"
+            id="startBtn"
+            onclick="startCrawling()"
+          >
+            🔍 검색 시작
+          </button>
+          <button
+            class="btn btn-stop"
+            id="stopBtn"
+            onclick="stopCrawling()"
+            style="display: none"
+          >
+            ⏹ 중지
+          </button>
+        </div>
+
+        <div class="progress-bar" id="progressBar" style="display: none">
+          <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+
+        <div class="status" id="status" style="display: none"></div>
+      </div>
+
+      <div class="results" id="results">
+        <div class="empty-state">
+          <p>검색 버튼을 눌러 상품을 찾아보세요</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let isRunning = false;
+      let shouldStop = false;
+
+      function log(message, type = "info") {
+        const status = document.getElementById("status");
+        status.style.display = "block";
+        const line = document.createElement("div");
+        line.className = `status-line status-${type}`;
+        line.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+        status.appendChild(line);
+        status.scrollTop = status.scrollHeight;
+      }
+
+      function clearLog() {
+        document.getElementById("status").innerHTML = "";
+      }
+
+      function updateProgress(current, max) {
+        const percent = (current / max) * 100;
+        document.getElementById("progressFill").style.width = `${percent}%`;
+      }
+
+      function formatPrice(price) {
+        return new Intl.NumberFormat("ko-KR").format(price) + "원";
+      }
+
+      function renderProduct(product) {
+        return `
+        <div class="product-card">
+          <img class="product-image" src="${product.image}" alt="${
+          product.name
+        }" loading="lazy" onerror="this.src='https://via.placeholder.com/300?text=No+Image'">
+          <div class="product-info">
+            <div class="product-name">${product.name}</div>
+            <div class="product-stats">
+              <span class="stat"><span class="stat-icon">🛒</span> ${product.sell_count.toLocaleString()}개</span>
+              <span class="stat"><span class="stat-icon">💬</span> ${product.review_count.toLocaleString()}개</span>
+              <span class="stat"><span class="stat-icon">👍</span> ${
+                product.positive_percent
+              }%</span>
+            </div>
+            <div class="product-price">${formatPrice(product.price)}</div>
+            <div class="product-market">${product.market_name}</div>
+            <a class="product-link" href="${
+              product.url
+            }" target="_blank">상품 보기 →</a>
+          </div>
+        </div>
+      `;
+      }
+
+      function extractProducts(data) {
+        const products = [];
+        for (const component of data.components || []) {
+          const itemList = component.entity?.item_list || [];
+          for (const item of itemList) {
+            if (item.type !== "GOODS_CARD") continue;
+            const itemData = item.item_entity?.item || {};
+            const renderData = item.item_entity?.render?.data || {};
+            products.push({
+              sno: itemData.sno,
+              name: itemData.name,
+              sell_count: itemData.sell_count || 0,
+              price: itemData.price,
+              market_name: itemData.market_name,
+              image: renderData.image?.url || itemData.image,
+            });
+          }
+        }
+        return products;
+      }
+
+      async function fetchProducts(categorySno, nextToken = null) {
+        const params = new URLSearchParams({
+          category_sno: categorySno,
+        });
+        if (nextToken) {
+          params.append("next_token", nextToken);
+        }
+        const response = await fetch(`/api/products?${params}`);
+        return response.json();
+      }
+
+      async function fetchReview(sno) {
+        const response = await fetch(`/api/review/${sno}`);
+        return response.json();
+      }
+
+      async function startCrawling() {
+        if (isRunning) return;
+
+        isRunning = true;
+        shouldStop = false;
+
+        const startBtn = document.getElementById("startBtn");
+        const stopBtn = document.getElementById("stopBtn");
+        const progressBar = document.getElementById("progressBar");
+        const results = document.getElementById("results");
+
+        startBtn.disabled = true;
+        stopBtn.style.display = "inline-block";
+        progressBar.style.display = "block";
+        results.innerHTML = "";
+        clearLog();
+
+        const categorySno = document.getElementById("category").value;
+        const minPurchase = parseInt(
+          document.getElementById("minPurchase").value
+        );
+        const minReview = parseInt(document.getElementById("minReview").value);
+        const minPositive = parseInt(
+          document.getElementById("minPositive").value
+        );
+        const maxProducts = parseInt(
+          document.getElementById("maxProducts").value
+        );
+
+        log(
+          `검색 시작: 카테고리=${categorySno}, 최소구매=${minPurchase}, 최소리뷰=${minReview}, 최소긍정률=${minPositive}%`
+        );
+
+        const foundProducts = [];
+        const checkedSnos = new Set();
+        let nextToken = null;
+
+        try {
+          while (foundProducts.length < maxProducts && !shouldStop) {
+            const data = await fetchProducts(categorySno, nextToken);
+            const products = extractProducts(data);
+
+            for (const product of products) {
+              if (shouldStop) break;
+              if (checkedSnos.has(product.sno)) continue;
+              checkedSnos.add(product.sno);
+
+              if (product.sell_count < minPurchase) continue;
+
+              log(
+                `검사중: ${product.name.slice(
+                  0,
+                  35
+                )}... (${product.sell_count.toLocaleString()}개 구매)`
+              );
+
+              const reviewData = await fetchReview(product.sno);
+              const review = reviewData.review || {};
+
+              if ((review.count || 0) < minReview) {
+                log(`  ❌ 리뷰 수 부족: ${review.count || 0}개`, "error");
+                continue;
+              }
+
+              if ((review.positive_percent || 0) < minPositive) {
+                log(
+                  `  ❌ 긍정률 부족: ${review.positive_percent || 0}%`,
+                  "error"
+                );
+                continue;
+              }
+
+              product.url = `https://m.a-bly.com/goods/${product.sno}`;
+              product.review_count = review.count || 0;
+              product.positive_percent = review.positive_percent || 0;
+              foundProducts.push(product);
+
+              log(
+                `  ✅ [${foundProducts.length}/${maxProducts}] 리뷰 ${review.count}개, 긍정률 ${review.positive_percent}%`,
+                "success"
+              );
+
+              results.innerHTML = foundProducts.map(renderProduct).join("");
+              updateProgress(foundProducts.length, maxProducts);
+
+              if (foundProducts.length >= maxProducts) break;
+            }
+
+            nextToken = data.next_token;
+            if (!nextToken) {
+              log("더 이상 페이지가 없습니다");
+              break;
+            }
+          }
+
+          if (shouldStop) {
+            log("검색이 중지되었습니다", "info");
+          } else {
+            log(`검색 완료! ${foundProducts.length}개 상품 발견`, "success");
+          }
+        } catch (error) {
+          log(`오류 발생: ${error.message}`, "error");
+        }
+
+        isRunning = false;
+        startBtn.disabled = false;
+        stopBtn.style.display = "none";
+        updateProgress(foundProducts.length, maxProducts);
+      }
+
+      function stopCrawling() {
+        shouldStop = true;
+        log("중지 요청됨...", "info");
+      }
+    </script>
+  </body>
+</html>

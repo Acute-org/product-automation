@@ -1,0 +1,2615 @@
+{
+  "title": "아우터",
+  "screen_name": "SUB_CATEGORY_DEPARTMENT",
+  "view_event_logging": {},
+  "logging": {
+    "analytics": {
+      "SCREEN": "SUB_CATEGORY_DEPARTMENT",
+      "CATEGORY_SNO": "293",
+      "CATEGORY_NAME": "자켓",
+      "FROM": "OVERVIEW"
+    },
+    "ably_only_log": {}
+  },
+  "components": [
+    {
+      "component_id": 128,
+      "type": {
+        "header": null,
+        "item_list": "TWO_COL_CARD_LIST",
+        "footer": null
+      },
+      "logging": {
+        "analytics": {
+          "LIST_ID": "category_sub_list_popular"
+        },
+        "ably_only_log": {
+          "list_id": "category_sub_list_popular"
+        }
+      },
+      "entity": {
+        "header": null,
+        "item_list": [
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 58424067,
+                "name": "[따숩~누빔안김♨️털빠짐X] 슈가 테디 양털 누빔안감 겨울 퍼 자켓 / 연말룩 데이트룩 데일리룩 클래식블랑",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/6sicuKqV7bw/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzE3ZjUwODU1MWQ4ODY0YTA1ZGYyZDU5Y2YwNmZjYjRjLmdpZg",
+                "market_sno": 1218,
+                "market_name": "클래식블랑",
+                "market_type": "쇼핑몰",
+                "delivery_type": "standard",
+                "sell_count": 278,
+                "discount_rate": 42,
+                "first_page_rendering": {
+                  "goods_name": "[따숩~누빔안김♨️털빠짐X] 슈가 테디 양털 누빔안감 겨울 퍼 자켓 / 연말룩 데이트룩 데일리룩 클래식블랑",
+                  "market_name": "클래식블랑",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/JHzhimUy0fA/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUxMjIzXzE3NjY0ODIyMDYzNTY5MDBtLmpwZw",
+                  "market_image": null,
+                  "discount_rate": 42,
+                  "original_price": 77610,
+                  "price": 44270
+                },
+                "is_new": false,
+                "price": 44270,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 58424067,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 20
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 20,
+                  "pool": "custom",
+                  "goods_sno": 58424067
+                },
+                "analytics": {
+                  "GOODS_SNO": "58424067",
+                  "GOODS_NAME": "[따숩~누빔안김♨️털빠짐X] 슈가 테디 양털 누빔안감 겨울 퍼 자켓 / 연말룩 데이트룩 데일리룩 클래식블랑",
+                  "MARKET_TYPE": "쇼핑몰",
+                  "MARKET_SNO": "1218",
+                  "MARKET_NAME": "클래식블랑",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 42,
+                  "SALES_PRICE": 44270,
+                  "SALES_PRICE_RANGE": "40,001~45,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "standard",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "8",
+                  "REVIEW_COUNT": 6,
+                  "REVIEW_COUNT_RANGE": "1~50",
+                  "REVIEW_RATING": 100,
+                  "LIKES_COUNT": 1176,
+                  "LIKES_COUNT_RANGE": "1,151~1,200",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": [],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 20
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/6sicuKqV7bw/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzE3ZjUwODU1MWQ4ODY0YTA1ZGYyZDU5Y2YwNmZjYjRjLmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "[따숩~누빔안김♨️털빠짐X] 슈가 테디 양털 누빔안감 겨울 퍼 자켓 / 연말룩 데이트룩 데일리룩 클래식블랑",
+                  "price": "44,270",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "42%",
+                  "closed_reason": null,
+                  "image_badge": null,
+                  "image_badge_width": null,
+                  "image_badge_height": null,
+                  "image_badge_list": [],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "클래식블랑",
+                  "nudging_text": "278개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 33292538,
+                "name": "[안감 털날림❌/하이넥 버클⭕] 에티오 하이넥 더블버클 지퍼 가죽포인트 허리버클 양털 페이크레더 무스탕",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/rPsU2emAUfE/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzg2MDg5YzQ4Nzg3YzkxZjY3MWQwOGYxNWZhZDU3MWY4LmdpZg",
+                "market_sno": 3547,
+                "market_name": "하이클래식",
+                "market_type": "쇼핑몰",
+                "delivery_type": "today",
+                "sell_count": 8485,
+                "discount_rate": 32,
+                "first_page_rendering": {
+                  "goods_name": "[안감 털날림❌/하이넥 버클⭕] 에티오 하이넥 더블버클 지퍼 가죽포인트 허리버클 양털 페이크레더 무스탕",
+                  "market_name": "하이클래식",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/EjpRxuwavEA/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUxMDI4XzE3NjE2Mzc4MDQ2ODIwODRtLmpwZw",
+                  "market_image": null,
+                  "discount_rate": 32,
+                  "original_price": 79500,
+                  "price": 53550
+                },
+                "is_new": false,
+                "price": 53550,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 33292538,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 21
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 21,
+                  "pool": "custom",
+                  "goods_sno": 33292538
+                },
+                "analytics": {
+                  "GOODS_SNO": "33292538",
+                  "GOODS_NAME": "[안감 털날림❌/하이넥 버클⭕] 에티오 하이넥 더블버클 지퍼 가죽포인트 허리버클 양털 페이크레더 무스탕",
+                  "MARKET_TYPE": "쇼핑몰",
+                  "MARKET_SNO": "3547",
+                  "MARKET_NAME": "하이클래식",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 32,
+                  "SALES_PRICE": 53550,
+                  "SALES_PRICE_RANGE": "50,001~55,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "today",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "8",
+                  "REVIEW_COUNT": 1550,
+                  "REVIEW_COUNT_RANGE": "1,551~1,600",
+                  "REVIEW_RATING": 96,
+                  "LIKES_COUNT": 21735,
+                  "LIKES_COUNT_RANGE": "21,701~21,750",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": ["TODAY_DELIVERY"],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 21
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/rPsU2emAUfE/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzg2MDg5YzQ4Nzg3YzkxZjY3MWQwOGYxNWZhZDU3MWY4LmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "[안감 털날림❌/하이넥 버클⭕] 에티오 하이넥 더블버클 지퍼 가죽포인트 허리버클 양털 페이크레더 무스탕",
+                  "price": "53,550",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "32%",
+                  "closed_reason": null,
+                  "image_badge": "https://d3ha2047wt6x28.cloudfront.net/ed29a9GcSUo/pr:CONVERT_TO_WEBP/czM6Ly9pbWcuYS1ibHkuY29tL2RhdGEvZ29vZHMvYmFkZ2UvYmFkZ2VfdG9kYXlfZGVsaXZlcnkucG5n",
+                  "image_badge_width": 46,
+                  "image_badge_height": 18,
+                  "image_badge_list": [
+                    {
+                      "type": "TODAY_DELIVERY",
+                      "image_url": "https://d3ha2047wt6x28.cloudfront.net/ed29a9GcSUo/pr:CONVERT_TO_WEBP/czM6Ly9pbWcuYS1ibHkuY29tL2RhdGEvZ29vZHMvYmFkZ2UvYmFkZ2VfdG9kYXlfZGVsaXZlcnkucG5n",
+                      "image_width": 46,
+                      "image_height": 18
+                    }
+                  ],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "하이클래식",
+                  "nudging_text": "8,485개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 56708478,
+                "name": "[유사저렴이X/안감누빔] 르에브 하프코트 카라 버튼 포켓 퍼자켓 하프자켓 뽀글이자켓 - 4color",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/RzR2J-2WcDY/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzNkOTZiZTQ2MWMzZDBhZjljMjNhZGQ2ZjM3MmY5ZDZiLmdpZg",
+                "market_sno": 86618,
+                "market_name": "코스모먼츠",
+                "market_type": "쇼핑몰",
+                "delivery_type": "standard",
+                "sell_count": 178,
+                "discount_rate": 38,
+                "first_page_rendering": {
+                  "goods_name": "[유사저렴이X/안감누빔] 르에브 하프코트 카라 버튼 포켓 퍼자켓 하프자켓 뽀글이자켓 - 4color",
+                  "market_name": "코스모먼츠",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/IoSAjjyErcE/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUxMTI4XzE3NjQzMTU3NDM0Njc5NDJtLnBuZw",
+                  "market_image": null,
+                  "discount_rate": 38,
+                  "original_price": 79500,
+                  "price": 48920
+                },
+                "is_new": false,
+                "price": 48920,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 56708478,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 22
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 22,
+                  "pool": "custom",
+                  "goods_sno": 56708478
+                },
+                "analytics": {
+                  "GOODS_SNO": "56708478",
+                  "GOODS_NAME": "[유사저렴이X/안감누빔] 르에브 하프코트 카라 버튼 포켓 퍼자켓 하프자켓 뽀글이자켓 - 4color",
+                  "MARKET_TYPE": "쇼핑몰",
+                  "MARKET_SNO": "86618",
+                  "MARKET_NAME": "코스모먼츠",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 38,
+                  "SALES_PRICE": 48920,
+                  "SALES_PRICE_RANGE": "45,001~50,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "standard",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "8",
+                  "REVIEW_COUNT": 10,
+                  "REVIEW_COUNT_RANGE": "1~50",
+                  "REVIEW_RATING": 100,
+                  "LIKES_COUNT": 671,
+                  "LIKES_COUNT_RANGE": "651~700",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": [],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 22
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/RzR2J-2WcDY/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzNkOTZiZTQ2MWMzZDBhZjljMjNhZGQ2ZjM3MmY5ZDZiLmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "[유사저렴이X/안감누빔] 르에브 하프코트 카라 버튼 포켓 퍼자켓 하프자켓 뽀글이자켓 - 4color",
+                  "price": "48,920",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "38%",
+                  "closed_reason": null,
+                  "image_badge": null,
+                  "image_badge_width": null,
+                  "image_badge_height": null,
+                  "image_badge_list": [],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "코스모먼츠",
+                  "nudging_text": "178개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 2844428,
+                "name": "언리미트 Fleece Jacket - 전사이즈 입고완료!",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/CPKc4xH_DdQ/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzcxMWM0OTgwNDU3NTU3NTg4ZDI0YWNlMDYxMmM1MDlkLndlYnA",
+                "market_sno": 20191,
+                "market_name": "언리미트",
+                "market_type": "캐주얼 브랜드",
+                "delivery_type": "today",
+                "sell_count": 36878,
+                "discount_rate": 59,
+                "first_page_rendering": {
+                  "goods_name": "언리미트 Fleece Jacket - 전사이즈 입고완료!",
+                  "market_name": " 언리미트",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/Hr9ctejt2ds/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUxMDIzXzE3NjExODk1MDM4NzM5MDJtLmpwZw",
+                  "market_image": null,
+                  "discount_rate": 59,
+                  "original_price": 49000,
+                  "price": 19920
+                },
+                "is_new": false,
+                "price": 19920,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 2844428,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 23
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 23,
+                  "pool": "custom",
+                  "goods_sno": 2844428
+                },
+                "analytics": {
+                  "GOODS_SNO": "2844428",
+                  "GOODS_NAME": "언리미트 Fleece Jacket - 전사이즈 입고완료!",
+                  "MARKET_TYPE": "캐주얼 브랜드",
+                  "MARKET_SNO": "20191",
+                  "MARKET_NAME": "언리미트",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 59,
+                  "SALES_PRICE": 19920,
+                  "SALES_PRICE_RANGE": "15,001~20,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "today",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "12",
+                  "REVIEW_COUNT": 11619,
+                  "REVIEW_COUNT_RANGE": "11,601~11,650",
+                  "REVIEW_RATING": 97,
+                  "LIKES_COUNT": 57526,
+                  "LIKES_COUNT_RANGE": "57,501~57,550",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": ["TODAY_DELIVERY"],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 23,
+                  "BRAND_SNO": 287,
+                  "BRAND_NAME": "언리미트"
+                }
+              },
+              "render": {
+                "contents": [
+                  "PRICE",
+                  "NAME",
+                  "STORE",
+                  "NUDGING",
+                  "CHIPS",
+                  "PRICE_DESCRIPTION"
+                ],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/CPKc4xH_DdQ/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzcxMWM0OTgwNDU3NTU3NTg4ZDI0YWNlMDYxMmM1MDlkLndlYnA",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "언리미트 Fleece Jacket - 전사이즈 입고완료!",
+                  "price": "19,920",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "59%",
+                  "closed_reason": null,
+                  "image_badge": "https://d3ha2047wt6x28.cloudfront.net/ed29a9GcSUo/pr:CONVERT_TO_WEBP/czM6Ly9pbWcuYS1ibHkuY29tL2RhdGEvZ29vZHMvYmFkZ2UvYmFkZ2VfdG9kYXlfZGVsaXZlcnkucG5n",
+                  "image_badge_width": 46,
+                  "image_badge_height": 18,
+                  "image_badge_list": [
+                    {
+                      "type": "TODAY_DELIVERY",
+                      "image_url": "https://d3ha2047wt6x28.cloudfront.net/ed29a9GcSUo/pr:CONVERT_TO_WEBP/czM6Ly9pbWcuYS1ibHkuY29tL2RhdGEvZ29vZHMvYmFkZ2UvYmFkZ2VfdG9kYXlfZGVsaXZlcnkucG5n",
+                      "image_width": 46,
+                      "image_height": 18
+                    }
+                  ],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "<font color='#6093FC'>브랜드</font> 언리미트",
+                  "nudging_text": "36,878개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": {
+                    "icon_url": "https://img.a-bly.com/data/goods/badge/icon_coupon_filled.png",
+                    "text": "쿠폰적용가"
+                  },
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 57846010,
+                "name": "셰도우 소프트 집업 퍼 자켓 (one color)",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/kSWV3f9vuJY/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzL2U1MWI4ZDc2YTlmZGI5MmNjNjgyYTgwNDc1ZDQ2ZWJjLmdpZg",
+                "market_sno": 20409,
+                "market_name": "민지콩",
+                "market_type": "쇼핑몰",
+                "delivery_type": "standard",
+                "sell_count": 628,
+                "discount_rate": 13,
+                "first_page_rendering": {
+                  "goods_name": "셰도우 소프트 집업 퍼 자켓 (one color)",
+                  "market_name": "민지콩",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/aFx3UvN4ua4/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzL2U1MWI4ZDc2YTlmZGI5MmNjNjgyYTgwNDc1ZDQ2ZWJjLmdpZg",
+                  "market_image": null,
+                  "discount_rate": 13,
+                  "original_price": 53000,
+                  "price": 46110
+                },
+                "is_new": false,
+                "price": 46110,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 57846010,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 24
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 24,
+                  "pool": "custom",
+                  "goods_sno": 57846010
+                },
+                "analytics": {
+                  "GOODS_SNO": "57846010",
+                  "GOODS_NAME": "셰도우 소프트 집업 퍼 자켓 (one color)",
+                  "MARKET_TYPE": "쇼핑몰",
+                  "MARKET_SNO": "20409",
+                  "MARKET_NAME": "민지콩",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 13,
+                  "SALES_PRICE": 46110,
+                  "SALES_PRICE_RANGE": "45,001~50,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "standard",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "8",
+                  "REVIEW_COUNT": 16,
+                  "REVIEW_COUNT_RANGE": "1~50",
+                  "REVIEW_RATING": 100,
+                  "LIKES_COUNT": 1792,
+                  "LIKES_COUNT_RANGE": "1,751~1,800",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": [],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 24
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/kSWV3f9vuJY/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzL2U1MWI4ZDc2YTlmZGI5MmNjNjgyYTgwNDc1ZDQ2ZWJjLmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "셰도우 소프트 집업 퍼 자켓 (one color)",
+                  "price": "46,110",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "13%",
+                  "closed_reason": null,
+                  "image_badge": null,
+                  "image_badge_width": null,
+                  "image_badge_height": null,
+                  "image_badge_list": [],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "민지콩",
+                  "nudging_text": "628개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 55495250,
+                "name": "[MADE]버디 퍼자켓",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/lHQa4eaRjPk/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzY3Y2MxOTI1NWVlNTVmMzRlZmMyMGUyZGMyMzllOGQyLmdpZg",
+                "market_sno": 30537,
+                "market_name": "베이델리",
+                "market_type": "쇼핑몰",
+                "delivery_type": "standard",
+                "sell_count": 1809,
+                "discount_rate": 11,
+                "first_page_rendering": {
+                  "goods_name": "[MADE]버디 퍼자켓",
+                  "market_name": "베이델리",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/om6wSOOiCLw/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUxMTExXzE3NjI4NDM4MDA1OTU2NzZtLmpwZw",
+                  "market_image": null,
+                  "discount_rate": 11,
+                  "original_price": 49900,
+                  "price": 44410
+                },
+                "is_new": false,
+                "price": 44410,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 55495250,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 25
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 25,
+                  "pool": "custom",
+                  "goods_sno": 55495250
+                },
+                "analytics": {
+                  "GOODS_SNO": "55495250",
+                  "GOODS_NAME": "[MADE]버디 퍼자켓",
+                  "MARKET_TYPE": "쇼핑몰",
+                  "MARKET_SNO": "30537",
+                  "MARKET_NAME": "베이델리",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 11,
+                  "SALES_PRICE": 44410,
+                  "SALES_PRICE_RANGE": "40,001~45,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "standard",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "8",
+                  "REVIEW_COUNT": 192,
+                  "REVIEW_COUNT_RANGE": "151~200",
+                  "REVIEW_RATING": 98,
+                  "LIKES_COUNT": 5391,
+                  "LIKES_COUNT_RANGE": "5,351~5,400",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": [],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 25
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/lHQa4eaRjPk/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzY3Y2MxOTI1NWVlNTVmMzRlZmMyMGUyZGMyMzllOGQyLmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "[MADE]버디 퍼자켓",
+                  "price": "44,410",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "11%",
+                  "closed_reason": null,
+                  "image_badge": null,
+                  "image_badge_width": null,
+                  "image_badge_height": null,
+                  "image_badge_list": [],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "베이델리",
+                  "nudging_text": "1,809개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 11882978,
+                "name": "[폭닥,도톰/러블리💓] 보슬보슬, 밍크 양털 카라 떡볶이 숏 코트 자켓 5color",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/Aba1CLpl6yA/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzL2ZhMGNmN2MzNWI3NWE3ZDUxOWRmNjEwODVlZTZhZDZiLmdpZg",
+                "market_sno": 16567,
+                "market_name": "허쉬젤리",
+                "market_type": "셀럽",
+                "delivery_type": "standard",
+                "sell_count": 16263,
+                "discount_rate": 26,
+                "first_page_rendering": {
+                  "goods_name": "[폭닥,도톰/러블리💓] 보슬보슬, 밍크 양털 카라 떡볶이 숏 코트 자켓 5color",
+                  "market_name": "허쉬젤리",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/kj-LznNHNVs/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjMxMTEwXzE2OTk2MjIwOTk0MDQwMzdtLmpwZw",
+                  "market_image": null,
+                  "discount_rate": 26,
+                  "original_price": 52900,
+                  "price": 38900
+                },
+                "is_new": false,
+                "price": 38900,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 11882978,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 26
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 26,
+                  "pool": "custom",
+                  "goods_sno": 11882978
+                },
+                "analytics": {
+                  "GOODS_SNO": "11882978",
+                  "GOODS_NAME": "[폭닥,도톰/러블리💓] 보슬보슬, 밍크 양털 카라 떡볶이 숏 코트 자켓 5color",
+                  "MARKET_TYPE": "셀럽",
+                  "MARKET_SNO": "16567",
+                  "MARKET_NAME": "허쉬젤리",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 26,
+                  "SALES_PRICE": 38900,
+                  "SALES_PRICE_RANGE": "35,001~40,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "standard",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "7",
+                  "REVIEW_COUNT": 2956,
+                  "REVIEW_COUNT_RANGE": "2,951~3,000",
+                  "REVIEW_RATING": 96,
+                  "LIKES_COUNT": 56414,
+                  "LIKES_COUNT_RANGE": "56,401~56,450",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": [],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 26
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/Aba1CLpl6yA/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzL2ZhMGNmN2MzNWI3NWE3ZDUxOWRmNjEwODVlZTZhZDZiLmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "[폭닥,도톰/러블리💓] 보슬보슬, 밍크 양털 카라 떡볶이 숏 코트 자켓 5color",
+                  "price": "38,900",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "26%",
+                  "closed_reason": null,
+                  "image_badge": null,
+                  "image_badge_width": null,
+                  "image_badge_height": null,
+                  "image_badge_list": [],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "허쉬젤리",
+                  "nudging_text": "16,263개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 14646424,
+                "name": "[스웨이드ver 추가✨/MADE] 세터 빈티지 워싱 절개 박시 레더 자켓",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/Ki-E36ttDxU/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzg1NjEwMmU1MmY0NDhkYTJhOTJiMWMwOTM1NzkzOTcwLmdpZg",
+                "market_sno": 3252,
+                "market_name": "원더원더",
+                "market_type": "쇼핑몰",
+                "delivery_type": "today",
+                "sell_count": 18487,
+                "discount_rate": 15,
+                "first_page_rendering": {
+                  "goods_name": "[스웨이드ver 추가✨/MADE] 세터 빈티지 워싱 절개 박시 레더 자켓",
+                  "market_name": "원더원더",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/ZeimrZxcrPI/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUxMjI2XzE3NjY3MjcwMzY0OTQ0OTRtLmpwZw",
+                  "market_image": null,
+                  "discount_rate": 15,
+                  "original_price": 63900,
+                  "price": 53910
+                },
+                "is_new": false,
+                "price": 53910,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 14646424,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 27
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 27,
+                  "pool": "custom",
+                  "goods_sno": 14646424
+                },
+                "analytics": {
+                  "GOODS_SNO": "14646424",
+                  "GOODS_NAME": "[스웨이드ver 추가✨/MADE] 세터 빈티지 워싱 절개 박시 레더 자켓",
+                  "MARKET_TYPE": "쇼핑몰",
+                  "MARKET_SNO": "3252",
+                  "MARKET_NAME": "원더원더",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 15,
+                  "SALES_PRICE": 53910,
+                  "SALES_PRICE_RANGE": "50,001~55,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "today",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "8",
+                  "REVIEW_COUNT": 3237,
+                  "REVIEW_COUNT_RANGE": "3,201~3,250",
+                  "REVIEW_RATING": 98,
+                  "LIKES_COUNT": 53309,
+                  "LIKES_COUNT_RANGE": "53,301~53,350",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": ["TODAY_DELIVERY"],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 27
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/Ki-E36ttDxU/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzg1NjEwMmU1MmY0NDhkYTJhOTJiMWMwOTM1NzkzOTcwLmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "[스웨이드ver 추가✨/MADE] 세터 빈티지 워싱 절개 박시 레더 자켓",
+                  "price": "53,910",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "15%",
+                  "closed_reason": null,
+                  "image_badge": "https://d3ha2047wt6x28.cloudfront.net/ed29a9GcSUo/pr:CONVERT_TO_WEBP/czM6Ly9pbWcuYS1ibHkuY29tL2RhdGEvZ29vZHMvYmFkZ2UvYmFkZ2VfdG9kYXlfZGVsaXZlcnkucG5n",
+                  "image_badge_width": 46,
+                  "image_badge_height": 18,
+                  "image_badge_list": [
+                    {
+                      "type": "TODAY_DELIVERY",
+                      "image_url": "https://d3ha2047wt6x28.cloudfront.net/ed29a9GcSUo/pr:CONVERT_TO_WEBP/czM6Ly9pbWcuYS1ibHkuY29tL2RhdGEvZ29vZHMvYmFkZ2UvYmFkZ2VfdG9kYXlfZGVsaXZlcnkucG5n",
+                      "image_width": 46,
+                      "image_height": 18
+                    }
+                  ],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "원더원더",
+                  "nudging_text": "18,487개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 58750222,
+                "name": "[울50%]카스미 부클 니트 무스탕",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/EG8R1bWouk0/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzlkMGQxZjAwNDY2NzA5NDQ5MWRjNzU3NGM4ZTNhM2UxLmdpZg",
+                "market_sno": 15251,
+                "market_name": "디어바이미",
+                "market_type": "쇼핑몰",
+                "delivery_type": "standard",
+                "sell_count": 69,
+                "discount_rate": 16,
+                "first_page_rendering": {
+                  "goods_name": "[울50%]카스미 부클 니트 무스탕",
+                  "market_name": "디어바이미",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/K0NCfVLGzRI/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzlkMGQxZjAwNDY2NzA5NDQ5MWRjNzU3NGM4ZTNhM2UxLmdpZg",
+                  "market_image": null,
+                  "discount_rate": 16,
+                  "original_price": 113000,
+                  "price": 94580
+                },
+                "is_new": false,
+                "price": 94580,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 58750222,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 28
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 28,
+                  "pool": "custom",
+                  "goods_sno": 58750222
+                },
+                "analytics": {
+                  "GOODS_SNO": "58750222",
+                  "GOODS_NAME": "[울50%]카스미 부클 니트 무스탕",
+                  "MARKET_TYPE": "쇼핑몰",
+                  "MARKET_SNO": "15251",
+                  "MARKET_NAME": "디어바이미",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 16,
+                  "SALES_PRICE": 94580,
+                  "SALES_PRICE_RANGE": "90,001~95,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "standard",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "8",
+                  "REVIEW_COUNT": 0,
+                  "REVIEW_COUNT_RANGE": "0",
+                  "REVIEW_RATING": 0,
+                  "LIKES_COUNT": 325,
+                  "LIKES_COUNT_RANGE": "301~350",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": [],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 28
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/EG8R1bWouk0/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzlkMGQxZjAwNDY2NzA5NDQ5MWRjNzU3NGM4ZTNhM2UxLmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "[울50%]카스미 부클 니트 무스탕",
+                  "price": "94,580",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "16%",
+                  "closed_reason": null,
+                  "image_badge": null,
+                  "image_badge_width": null,
+                  "image_badge_height": null,
+                  "image_badge_list": [],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "디어바이미",
+                  "nudging_text": "69개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 56933672,
+                "name": "[NEW⛄겨울신상]  주스트 하프 무스탕 (2color)/퍼자켓/겨울아우터/하프자켓/데이트룩/하객룩/무스탕",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/WF9yRV5hFT0/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzL2Y5MmYzYzUwNDYzNGQxYmNlOTJmMDM1NjY0N2JiOTI0LmdpZg",
+                "market_sno": 3175,
+                "market_name": "니어웨어",
+                "market_type": "쇼핑몰",
+                "delivery_type": "today",
+                "sell_count": 293,
+                "discount_rate": 14,
+                "first_page_rendering": {
+                  "goods_name": "[NEW⛄겨울신상]  주스트 하프 무스탕 (2color)/퍼자켓/겨울아우터/하프자켓/데이트룩/하객룩/무스탕",
+                  "market_name": "니어웨어",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/BwG-pgXnFh8/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUxMjAyXzE3NjQ2NjY5Njc2OTEzNzZtLmpwZw",
+                  "market_image": null,
+                  "discount_rate": 14,
+                  "original_price": 84340,
+                  "price": 72100
+                },
+                "is_new": false,
+                "price": 72100,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 56933672,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 29
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 29,
+                  "pool": "custom",
+                  "goods_sno": 56933672
+                },
+                "analytics": {
+                  "GOODS_SNO": "56933672",
+                  "GOODS_NAME": "[NEW⛄겨울신상]  주스트 하프 무스탕 (2color)/퍼자켓/겨울아우터/하프자켓/데이트룩/하객룩/무스탕",
+                  "MARKET_TYPE": "쇼핑몰",
+                  "MARKET_SNO": "3175",
+                  "MARKET_NAME": "니어웨어",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 14,
+                  "SALES_PRICE": 72100,
+                  "SALES_PRICE_RANGE": "70,001~75,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "today",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "8",
+                  "REVIEW_COUNT": 10,
+                  "REVIEW_COUNT_RANGE": "1~50",
+                  "REVIEW_RATING": 100,
+                  "LIKES_COUNT": 1897,
+                  "LIKES_COUNT_RANGE": "1,851~1,900",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": ["TODAY_DELIVERY"],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 29
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/WF9yRV5hFT0/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzL2Y5MmYzYzUwNDYzNGQxYmNlOTJmMDM1NjY0N2JiOTI0LmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "[NEW⛄겨울신상]  주스트 하프 무스탕 (2color)/퍼자켓/겨울아우터/하프자켓/데이트룩/하객룩/무스탕",
+                  "price": "72,100",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "14%",
+                  "closed_reason": null,
+                  "image_badge": "https://d3ha2047wt6x28.cloudfront.net/ed29a9GcSUo/pr:CONVERT_TO_WEBP/czM6Ly9pbWcuYS1ibHkuY29tL2RhdGEvZ29vZHMvYmFkZ2UvYmFkZ2VfdG9kYXlfZGVsaXZlcnkucG5n",
+                  "image_badge_width": 46,
+                  "image_badge_height": 18,
+                  "image_badge_list": [
+                    {
+                      "type": "TODAY_DELIVERY",
+                      "image_url": "https://d3ha2047wt6x28.cloudfront.net/ed29a9GcSUo/pr:CONVERT_TO_WEBP/czM6Ly9pbWcuYS1ibHkuY29tL2RhdGEvZ29vZHMvYmFkZ2UvYmFkZ2VfdG9kYXlfZGVsaXZlcnkucG5n",
+                      "image_width": 46,
+                      "image_height": 18
+                    }
+                  ],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "니어웨어",
+                  "nudging_text": "293개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 34573052,
+                "name": "[MADE:자체제작]레더 크롭 무스탕",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/h2aFAkqEeP8/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzL2Q4OGRhOThlMzdiNzM2NDVjNDdjOGRmNDExZGViYjY2LmdpZg",
+                "market_sno": 8288,
+                "market_name": "히프나틱",
+                "market_type": "쇼핑몰",
+                "delivery_type": "standard",
+                "sell_count": 472,
+                "discount_rate": 9,
+                "first_page_rendering": {
+                  "goods_name": "[MADE:자체제작]레더 크롭 무스탕",
+                  "market_name": "히프나틱",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/q6720jq08r0/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjQxMTIwXzE3MzIxMTIzNTMzMjI1MjhtLmpwZw",
+                  "market_image": null,
+                  "discount_rate": 9,
+                  "original_price": 230000,
+                  "price": 209000
+                },
+                "is_new": false,
+                "price": 209000,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 34573052,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 30
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 30,
+                  "pool": "custom",
+                  "goods_sno": 34573052
+                },
+                "analytics": {
+                  "GOODS_SNO": "34573052",
+                  "GOODS_NAME": "[MADE:자체제작]레더 크롭 무스탕",
+                  "MARKET_TYPE": "쇼핑몰",
+                  "MARKET_SNO": "8288",
+                  "MARKET_NAME": "히프나틱",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 9,
+                  "SALES_PRICE": 209000,
+                  "SALES_PRICE_RANGE": "205,001~210,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "standard",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "8",
+                  "REVIEW_COUNT": 47,
+                  "REVIEW_COUNT_RANGE": "1~50",
+                  "REVIEW_RATING": 97,
+                  "LIKES_COUNT": 2098,
+                  "LIKES_COUNT_RANGE": "2,051~2,100",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": [],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 30
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/h2aFAkqEeP8/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzL2Q4OGRhOThlMzdiNzM2NDVjNDdjOGRmNDExZGViYjY2LmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "[MADE:자체제작]레더 크롭 무스탕",
+                  "price": "209,000",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "9%",
+                  "closed_reason": null,
+                  "image_badge": null,
+                  "image_badge_width": null,
+                  "image_badge_height": null,
+                  "image_badge_list": [],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "히프나틱",
+                  "nudging_text": "472개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 54904918,
+                "name": "파트 블루종 자켓 (2color)",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/8rZ8ERe1P5I/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzMyNzM0MGJkYmFlYTkxMzZhMjc4ZTcwMTZhNjc1ZmM2LmdpZg",
+                "market_sno": 92128,
+                "market_name": "LOOFON",
+                "market_type": "쇼핑몰",
+                "delivery_type": "today",
+                "sell_count": 451,
+                "discount_rate": 20,
+                "first_page_rendering": {
+                  "goods_name": "파트 블루종 자켓 (2color)",
+                  "market_name": "LOOFON",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/vY2kYaX6RH0/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUxMDMxXzE3NjE4ODQ1OTQwNTM3NTBtLmpwZw",
+                  "market_image": null,
+                  "discount_rate": 20,
+                  "original_price": 77300,
+                  "price": 61800
+                },
+                "is_new": false,
+                "price": 61800,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 54904918,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 31
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 31,
+                  "pool": "custom",
+                  "goods_sno": 54904918
+                },
+                "analytics": {
+                  "GOODS_SNO": "54904918",
+                  "GOODS_NAME": "파트 블루종 자켓 (2color)",
+                  "MARKET_TYPE": "쇼핑몰",
+                  "MARKET_SNO": "92128",
+                  "MARKET_NAME": "LOOFON",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 20,
+                  "SALES_PRICE": 61800,
+                  "SALES_PRICE_RANGE": "60,001~65,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "today",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "8",
+                  "REVIEW_COUNT": 25,
+                  "REVIEW_COUNT_RANGE": "1~50",
+                  "REVIEW_RATING": 96,
+                  "LIKES_COUNT": 2674,
+                  "LIKES_COUNT_RANGE": "2,651~2,700",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": ["TODAY_DELIVERY"],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 31
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/8rZ8ERe1P5I/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzMyNzM0MGJkYmFlYTkxMzZhMjc4ZTcwMTZhNjc1ZmM2LmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "파트 블루종 자켓 (2color)",
+                  "price": "61,800",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "20%",
+                  "closed_reason": null,
+                  "image_badge": "https://d3ha2047wt6x28.cloudfront.net/ed29a9GcSUo/pr:CONVERT_TO_WEBP/czM6Ly9pbWcuYS1ibHkuY29tL2RhdGEvZ29vZHMvYmFkZ2UvYmFkZ2VfdG9kYXlfZGVsaXZlcnkucG5n",
+                  "image_badge_width": 46,
+                  "image_badge_height": 18,
+                  "image_badge_list": [
+                    {
+                      "type": "TODAY_DELIVERY",
+                      "image_url": "https://d3ha2047wt6x28.cloudfront.net/ed29a9GcSUo/pr:CONVERT_TO_WEBP/czM6Ly9pbWcuYS1ibHkuY29tL2RhdGEvZ29vZHMvYmFkZ2UvYmFkZ2VfdG9kYXlfZGVsaXZlcnkucG5n",
+                      "image_width": 46,
+                      "image_height": 18
+                    }
+                  ],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "LOOFON",
+                  "nudging_text": "451개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 56739640,
+                "name": "[하이넥가능🔥/뻣뻣함zero!] 핀디 하이넥 버클 스웨이드 뽀글이 무스탕",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/eL2pQWUU-ns/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzL2UxOTgxMzQxODViNGU3YmFkZThiNjRiZWVkNGE1YmVjLndlYnA",
+                "market_sno": 63472,
+                "market_name": "유색",
+                "market_type": "쇼핑몰",
+                "delivery_type": "standard",
+                "sell_count": 699,
+                "discount_rate": 33,
+                "first_page_rendering": {
+                  "goods_name": "[하이넥가능🔥/뻣뻣함zero!] 핀디 하이넥 버클 스웨이드 뽀글이 무스탕",
+                  "market_name": "유색",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/1x4pb-vHUOA/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUxMTI5XzE3NjQzNDI3NzgyNzgzMTJtLmpwZw",
+                  "market_image": null,
+                  "discount_rate": 33,
+                  "original_price": 51000,
+                  "price": 33910
+                },
+                "is_new": false,
+                "price": 33910,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 56739640,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 32
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 32,
+                  "pool": "custom",
+                  "goods_sno": 56739640
+                },
+                "analytics": {
+                  "GOODS_SNO": "56739640",
+                  "GOODS_NAME": "[하이넥가능🔥/뻣뻣함zero!] 핀디 하이넥 버클 스웨이드 뽀글이 무스탕",
+                  "MARKET_TYPE": "쇼핑몰",
+                  "MARKET_SNO": "63472",
+                  "MARKET_NAME": "유색",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 33,
+                  "SALES_PRICE": 33910,
+                  "SALES_PRICE_RANGE": "30,001~35,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "standard",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "8",
+                  "REVIEW_COUNT": 28,
+                  "REVIEW_COUNT_RANGE": "1~50",
+                  "REVIEW_RATING": 92,
+                  "LIKES_COUNT": 4162,
+                  "LIKES_COUNT_RANGE": "4,151~4,200",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": [],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 32
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/eL2pQWUU-ns/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzL2UxOTgxMzQxODViNGU3YmFkZThiNjRiZWVkNGE1YmVjLndlYnA",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "[하이넥가능🔥/뻣뻣함zero!] 핀디 하이넥 버클 스웨이드 뽀글이 무스탕",
+                  "price": "33,910",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "33%",
+                  "closed_reason": null,
+                  "image_badge": null,
+                  "image_badge_width": null,
+                  "image_badge_height": null,
+                  "image_badge_list": [],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "유색",
+                  "nudging_text": "699개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 57263054,
+                "name": "[안감 퍼/3컬러] 레더 후드집업 레이어드 겨울 자켓",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/6oT2t37AB3s/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUxMjA3XzE3NjUxMDg1MDYzODA5MzRtLmdpZg",
+                "market_sno": 86688,
+                "market_name": "쿠니브",
+                "market_type": "셀럽",
+                "delivery_type": "today",
+                "sell_count": 658,
+                "discount_rate": 14,
+                "first_page_rendering": {
+                  "goods_name": "[안감 퍼/3컬러] 레더 후드집업 레이어드 겨울 자켓",
+                  "market_name": "쿠니브",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/4gYY_2WyZr8/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUxMjA3XzE3NjUxMDg1MDY4MDU2MDNtLnBuZw",
+                  "market_image": null,
+                  "discount_rate": 14,
+                  "original_price": 42800,
+                  "price": 36800
+                },
+                "is_new": false,
+                "price": 36800,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 57263054,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 33
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 33,
+                  "pool": "custom",
+                  "goods_sno": 57263054
+                },
+                "analytics": {
+                  "GOODS_SNO": "57263054",
+                  "GOODS_NAME": "[안감 퍼/3컬러] 레더 후드집업 레이어드 겨울 자켓",
+                  "MARKET_TYPE": "셀럽",
+                  "MARKET_SNO": "86688",
+                  "MARKET_NAME": "쿠니브",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 14,
+                  "SALES_PRICE": 36800,
+                  "SALES_PRICE_RANGE": "35,001~40,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "today",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "7",
+                  "REVIEW_COUNT": 40,
+                  "REVIEW_COUNT_RANGE": "1~50",
+                  "REVIEW_RATING": 100,
+                  "LIKES_COUNT": 2776,
+                  "LIKES_COUNT_RANGE": "2,751~2,800",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": ["TODAY_DELIVERY"],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 33
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/6oT2t37AB3s/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUxMjA3XzE3NjUxMDg1MDYzODA5MzRtLmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "[안감 퍼/3컬러] 레더 후드집업 레이어드 겨울 자켓",
+                  "price": "36,800",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "14%",
+                  "closed_reason": null,
+                  "image_badge": "https://d3ha2047wt6x28.cloudfront.net/ed29a9GcSUo/pr:CONVERT_TO_WEBP/czM6Ly9pbWcuYS1ibHkuY29tL2RhdGEvZ29vZHMvYmFkZ2UvYmFkZ2VfdG9kYXlfZGVsaXZlcnkucG5n",
+                  "image_badge_width": 46,
+                  "image_badge_height": 18,
+                  "image_badge_list": [
+                    {
+                      "type": "TODAY_DELIVERY",
+                      "image_url": "https://d3ha2047wt6x28.cloudfront.net/ed29a9GcSUo/pr:CONVERT_TO_WEBP/czM6Ly9pbWcuYS1ibHkuY29tL2RhdGEvZ29vZHMvYmFkZ2UvYmFkZ2VfdG9kYXlfZGVsaXZlcnkucG5n",
+                      "image_width": 46,
+                      "image_height": 18
+                    }
+                  ],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "쿠니브",
+                  "nudging_text": "658개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 54876340,
+                "name": "[겨울 아우터❄️/숏코트]페이 테디베어 양털 뽀글퍼 숏 자켓(3color)",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/olCdS-jCLPQ/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzc5OTQ0OWNmZmMwMGY1MmMwMThkODVkMTUzYzE1OTY5LmdpZg",
+                "market_sno": 20482,
+                "market_name": "더블콩",
+                "market_type": "쇼핑몰",
+                "delivery_type": "today",
+                "sell_count": 3506,
+                "discount_rate": 10,
+                "first_page_rendering": {
+                  "goods_name": "[겨울 아우터❄️/숏코트]페이 테디베어 양털 뽀글퍼 숏 자켓(3color)",
+                  "market_name": "더블콩",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/BTHTT4s0D9Q/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUxMDMxXzE3NjE4NzMyNDc1MzgyOTRtLmpwZw",
+                  "market_image": null,
+                  "discount_rate": 10,
+                  "original_price": 39800,
+                  "price": 35820
+                },
+                "is_new": false,
+                "price": 35820,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 54876340,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 34
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 34,
+                  "pool": "custom",
+                  "goods_sno": 54876340
+                },
+                "analytics": {
+                  "GOODS_SNO": "54876340",
+                  "GOODS_NAME": "[겨울 아우터❄️/숏코트]페이 테디베어 양털 뽀글퍼 숏 자켓(3color)",
+                  "MARKET_TYPE": "쇼핑몰",
+                  "MARKET_SNO": "20482",
+                  "MARKET_NAME": "더블콩",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 10,
+                  "SALES_PRICE": 35820,
+                  "SALES_PRICE_RANGE": "35,001~40,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "today",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "8",
+                  "REVIEW_COUNT": 261,
+                  "REVIEW_COUNT_RANGE": "251~300",
+                  "REVIEW_RATING": 93,
+                  "LIKES_COUNT": 16433,
+                  "LIKES_COUNT_RANGE": "16,401~16,450",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": ["TODAY_DELIVERY"],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 34
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/olCdS-jCLPQ/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzc5OTQ0OWNmZmMwMGY1MmMwMThkODVkMTUzYzE1OTY5LmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "[겨울 아우터❄️/숏코트]페이 테디베어 양털 뽀글퍼 숏 자켓(3color)",
+                  "price": "35,820",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "10%",
+                  "closed_reason": null,
+                  "image_badge": "https://d3ha2047wt6x28.cloudfront.net/ed29a9GcSUo/pr:CONVERT_TO_WEBP/czM6Ly9pbWcuYS1ibHkuY29tL2RhdGEvZ29vZHMvYmFkZ2UvYmFkZ2VfdG9kYXlfZGVsaXZlcnkucG5n",
+                  "image_badge_width": 46,
+                  "image_badge_height": 18,
+                  "image_badge_list": [
+                    {
+                      "type": "TODAY_DELIVERY",
+                      "image_url": "https://d3ha2047wt6x28.cloudfront.net/ed29a9GcSUo/pr:CONVERT_TO_WEBP/czM6Ly9pbWcuYS1ibHkuY29tL2RhdGEvZ29vZHMvYmFkZ2UvYmFkZ2VfdG9kYXlfZGVsaXZlcnkucG5n",
+                      "image_width": 46,
+                      "image_height": 18
+                    }
+                  ],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "더블콩",
+                  "nudging_text": "3,506개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 57969467,
+                "name": "[겨울용🖤/도톰해요!]부드럽고 도톰한 원단에 딱 예쁜 루즈핏,보카시 믹스 윈터 소프트 루즈핏 싱글자켓",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/nPELtlPVKps/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzdlZDBjOGQwMDQxMzAzZjdhNmJiOWZiODBiOWI4NGM5LmdpZg",
+                "market_sno": 63814,
+                "market_name": "온유어리",
+                "market_type": "쇼핑몰",
+                "delivery_type": "standard",
+                "sell_count": 92,
+                "discount_rate": 38,
+                "first_page_rendering": {
+                  "goods_name": "[겨울용🖤/도톰해요!]부드럽고 도톰한 원단에 딱 예쁜 루즈핏,보카시 믹스 윈터 소프트 루즈핏 싱글자켓",
+                  "market_name": "온유어리",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/nfDei934bFE/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUxMjE3XzE3NjU5MzI1MzA4NTE3MzNtLmpwZw",
+                  "market_image": null,
+                  "discount_rate": 38,
+                  "original_price": 75460,
+                  "price": 46310
+                },
+                "is_new": false,
+                "price": 46310,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 57969467,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 35
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 35,
+                  "pool": "custom",
+                  "goods_sno": 57969467
+                },
+                "analytics": {
+                  "GOODS_SNO": "57969467",
+                  "GOODS_NAME": "[겨울용🖤/도톰해요!]부드럽고 도톰한 원단에 딱 예쁜 루즈핏,보카시 믹스 윈터 소프트 루즈핏 싱글자켓",
+                  "MARKET_TYPE": "쇼핑몰",
+                  "MARKET_SNO": "63814",
+                  "MARKET_NAME": "온유어리",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 38,
+                  "SALES_PRICE": 46310,
+                  "SALES_PRICE_RANGE": "45,001~50,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "standard",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "8",
+                  "REVIEW_COUNT": 4,
+                  "REVIEW_COUNT_RANGE": "1~50",
+                  "REVIEW_RATING": 100,
+                  "LIKES_COUNT": 294,
+                  "LIKES_COUNT_RANGE": "251~300",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": [],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 35
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/nPELtlPVKps/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzdlZDBjOGQwMDQxMzAzZjdhNmJiOWZiODBiOWI4NGM5LmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "[겨울용🖤/도톰해요!]부드럽고 도톰한 원단에 딱 예쁜 루즈핏,보카시 믹스 윈터 소프트 루즈핏 싱글자켓",
+                  "price": "46,310",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "38%",
+                  "closed_reason": null,
+                  "image_badge": null,
+                  "image_badge_width": null,
+                  "image_badge_height": null,
+                  "image_badge_list": [],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "온유어리",
+                  "nudging_text": "92개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 55614230,
+                "name": "[🎀연말룩/모델추천] 사론 퍼 크롭 라운드 자켓",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/Oq42Y9Ko7wg/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzVhYmQ3MjY3NzdjYjlmM2E2YTlhYWE4NWZhM2NjY2Q5LmdpZg",
+                "market_sno": 28903,
+                "market_name": "온디드",
+                "market_type": "셀럽",
+                "delivery_type": "standard",
+                "sell_count": 1184,
+                "discount_rate": 25,
+                "first_page_rendering": {
+                  "goods_name": "[🎀연말룩/모델추천] 사론 퍼 크롭 라운드 자켓",
+                  "market_name": "온디드",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/dS66XqyRDBU/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUxMTEzXzE3NjMwMDIzODcyNDk0NTRtLmpwZw",
+                  "market_image": null,
+                  "discount_rate": 25,
+                  "original_price": 38900,
+                  "price": 28900
+                },
+                "is_new": false,
+                "price": 28900,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 55614230,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 36
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 36,
+                  "pool": "custom",
+                  "goods_sno": 55614230
+                },
+                "analytics": {
+                  "GOODS_SNO": "55614230",
+                  "GOODS_NAME": "[🎀연말룩/모델추천] 사론 퍼 크롭 라운드 자켓",
+                  "MARKET_TYPE": "셀럽",
+                  "MARKET_SNO": "28903",
+                  "MARKET_NAME": "온디드",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 25,
+                  "SALES_PRICE": 28900,
+                  "SALES_PRICE_RANGE": "25,001~30,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "standard",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "7",
+                  "REVIEW_COUNT": 68,
+                  "REVIEW_COUNT_RANGE": "51~100",
+                  "REVIEW_RATING": 98,
+                  "LIKES_COUNT": 4452,
+                  "LIKES_COUNT_RANGE": "4,451~4,500",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": [],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 36
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/Oq42Y9Ko7wg/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzVhYmQ3MjY3NzdjYjlmM2E2YTlhYWE4NWZhM2NjY2Q5LmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "[🎀연말룩/모델추천] 사론 퍼 크롭 라운드 자켓",
+                  "price": "28,900",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "25%",
+                  "closed_reason": null,
+                  "image_badge": null,
+                  "image_badge_width": null,
+                  "image_badge_height": null,
+                  "image_badge_list": [],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "온디드",
+                  "nudging_text": "1,184개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 57339850,
+                "name": "[왕따숩🐻,부한핏X, 울 소재, 울30] 몽글 무스탕 퍼코트 안감 스웨이드 -4color",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/uTsuurQbWHY/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzA2MDFhNDRjNjlkOTVlNWUyN2M3NGEyMTc3MzFhYTJmLmdpZg",
+                "market_sno": 33880,
+                "market_name": "웨어무드",
+                "market_type": "셀럽",
+                "delivery_type": "today",
+                "sell_count": 455,
+                "discount_rate": 36,
+                "first_page_rendering": {
+                  "goods_name": "[왕따숩🐻,부한핏X, 울 소재, 울30] 몽글 무스탕 퍼코트 안감 스웨이드 -4color",
+                  "market_name": "웨어무드",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/rZsX7M-7GYc/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUxMjA4XzE3NjUyMDI2MTYwNzE3MjFtLmpwZw",
+                  "market_image": null,
+                  "discount_rate": 36,
+                  "original_price": 99000,
+                  "price": 62470
+                },
+                "is_new": false,
+                "price": 62470,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 57339850,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 37
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 37,
+                  "pool": "custom",
+                  "goods_sno": 57339850
+                },
+                "analytics": {
+                  "GOODS_SNO": "57339850",
+                  "GOODS_NAME": "[왕따숩🐻,부한핏X, 울 소재, 울30] 몽글 무스탕 퍼코트 안감 스웨이드 -4color",
+                  "MARKET_TYPE": "셀럽",
+                  "MARKET_SNO": "33880",
+                  "MARKET_NAME": "웨어무드",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 36,
+                  "SALES_PRICE": 62470,
+                  "SALES_PRICE_RANGE": "60,001~65,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "today",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "7",
+                  "REVIEW_COUNT": 22,
+                  "REVIEW_COUNT_RANGE": "1~50",
+                  "REVIEW_RATING": 100,
+                  "LIKES_COUNT": 1071,
+                  "LIKES_COUNT_RANGE": "1,051~1,100",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": ["TODAY_DELIVERY"],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 37
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/uTsuurQbWHY/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzA2MDFhNDRjNjlkOTVlNWUyN2M3NGEyMTc3MzFhYTJmLmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "[왕따숩🐻,부한핏X, 울 소재, 울30] 몽글 무스탕 퍼코트 안감 스웨이드 -4color",
+                  "price": "62,470",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "36%",
+                  "closed_reason": null,
+                  "image_badge": "https://d3ha2047wt6x28.cloudfront.net/ed29a9GcSUo/pr:CONVERT_TO_WEBP/czM6Ly9pbWcuYS1ibHkuY29tL2RhdGEvZ29vZHMvYmFkZ2UvYmFkZ2VfdG9kYXlfZGVsaXZlcnkucG5n",
+                  "image_badge_width": 46,
+                  "image_badge_height": 18,
+                  "image_badge_list": [
+                    {
+                      "type": "TODAY_DELIVERY",
+                      "image_url": "https://d3ha2047wt6x28.cloudfront.net/ed29a9GcSUo/pr:CONVERT_TO_WEBP/czM6Ly9pbWcuYS1ibHkuY29tL2RhdGEvZ29vZHMvYmFkZ2UvYmFkZ2VfdG9kYXlfZGVsaXZlcnkucG5n",
+                      "image_width": 46,
+                      "image_height": 18
+                    }
+                  ],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "웨어무드",
+                  "nudging_text": "455개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 55108619,
+                "name": "#오늘출발 WONT 로맨티 퍼 자켓",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/m1h-QcvvsMw/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzFlMGM5YTQxOGMzYjVhZGNiMDAwY2NjOTg0MWFiMTMyLmdpZg",
+                "market_sno": 11133,
+                "market_name": "원로그",
+                "market_type": "쇼핑몰",
+                "delivery_type": "standard",
+                "sell_count": 228,
+                "discount_rate": 16,
+                "first_page_rendering": {
+                  "goods_name": "#오늘출발 WONT 로맨티 퍼 자켓",
+                  "market_name": "원로그",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/pziHgXnCdBk/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjYwMTA5XzE3Njc5NDU3MjE4NTI2NzFtLnBuZw",
+                  "market_image": null,
+                  "discount_rate": 16,
+                  "original_price": 117000,
+                  "price": 97750
+                },
+                "is_new": false,
+                "price": 97750,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 55108619,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 38
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 38,
+                  "pool": "custom",
+                  "goods_sno": 55108619
+                },
+                "analytics": {
+                  "GOODS_SNO": "55108619",
+                  "GOODS_NAME": "#오늘출발 WONT 로맨티 퍼 자켓",
+                  "MARKET_TYPE": "쇼핑몰",
+                  "MARKET_SNO": "11133",
+                  "MARKET_NAME": "원로그",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 16,
+                  "SALES_PRICE": 97750,
+                  "SALES_PRICE_RANGE": "95,001~100,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "standard",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "8",
+                  "REVIEW_COUNT": 20,
+                  "REVIEW_COUNT_RANGE": "1~50",
+                  "REVIEW_RATING": 85,
+                  "LIKES_COUNT": 1154,
+                  "LIKES_COUNT_RANGE": "1,151~1,200",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": [],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 38
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/m1h-QcvvsMw/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzFlMGM5YTQxOGMzYjVhZGNiMDAwY2NjOTg0MWFiMTMyLmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "#오늘출발 WONT 로맨티 퍼 자켓",
+                  "price": "97,750",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "16%",
+                  "closed_reason": null,
+                  "image_badge": null,
+                  "image_badge_width": null,
+                  "image_badge_height": null,
+                  "image_badge_list": [],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "원로그",
+                  "nudging_text": "228개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          },
+          {
+            "type": "GOODS_CARD",
+            "item_entity": {
+              "item": {
+                "sno": 54312497,
+                "name": "[unisex] 칼텐 체크 배색 후드 코트 자켓",
+                "image": "https://d3ha2047wt6x28.cloudfront.net/MkHXaEm6-Jg/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwNTc3ZjU5OWU5ZWRkY2Y4N2IwYWQ5NDY3ODhlNzNjLmdpZg",
+                "market_sno": 63430,
+                "market_name": "바온",
+                "market_type": "쇼핑몰",
+                "delivery_type": "standard",
+                "sell_count": 509,
+                "discount_rate": 7,
+                "first_page_rendering": {
+                  "goods_name": "[unisex] 칼텐 체크 배색 후드 코트 자켓",
+                  "market_name": "바온",
+                  "cover_image": "https://d3ha2047wt6x28.cloudfront.net/j-LQIkjXYQs/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwNTc3ZjU5OWU5ZWRkY2Y4N2IwYWQ5NDY3ODhlNzNjLmdpZg",
+                  "market_image": null,
+                  "discount_rate": 7,
+                  "original_price": 55000,
+                  "price": 51150
+                },
+                "is_new": false,
+                "price": 51150,
+                "expected_reward": null,
+                "like": {
+                  "goods_sno": 54312497,
+                  "is_liked": false,
+                  "folder_sno": null,
+                  "referrer": {
+                    "list_id": "category_sub_list_popular",
+                    "list_index": 39
+                  }
+                },
+                "ad": null,
+                "on_return": null,
+                "category_name": "자켓",
+                "feedback_type": null,
+                "remote_deeplink": null
+              },
+              "logging": {
+                "ably_only_log": {
+                  "schema_name": "Goods",
+                  "list_id": "category_sub_list_popular",
+                  "list_index": 39,
+                  "pool": "custom",
+                  "goods_sno": 54312497
+                },
+                "analytics": {
+                  "GOODS_SNO": "54312497",
+                  "GOODS_NAME": "[unisex] 칼텐 체크 배색 후드 코트 자켓",
+                  "MARKET_TYPE": "쇼핑몰",
+                  "MARKET_SNO": "63430",
+                  "MARKET_NAME": "바온",
+                  "CATEGORY_SNO": "293",
+                  "CATEGORY_NAME": "자켓",
+                  "STANDARD_CATEGORY_SNO": "4",
+                  "STANDARD_CATEGORY_NAME": "자켓",
+                  "DISCOUNT_RATE": 7,
+                  "SALES_PRICE": 51150,
+                  "SALES_PRICE_RANGE": "50,001~55,000",
+                  "IS_NEW": "0",
+                  "DELIVERY_TYPE": "standard",
+                  "IS_AD": "0",
+                  "LIST_PARAMS": null,
+                  "MARKET_TYPE_SNO": "8",
+                  "REVIEW_COUNT": 48,
+                  "REVIEW_COUNT_RANGE": "1~50",
+                  "REVIEW_RATING": 95,
+                  "LIKES_COUNT": 1495,
+                  "LIKES_COUNT_RANGE": "1,451~1,500",
+                  "PROMOTION_TAG": ["FIRST_PURCHASE_BENEFIT"],
+                  "HAS_AWARD": false,
+                  "IS_ONLY_ABLY": false,
+                  "IMAGE_BADGE_LIST": [],
+                  "IS_BLACK_FRIDAY": true,
+                  "LIST_ID": "category_sub_list_popular",
+                  "LIST_INDEX": 39
+                }
+              },
+              "render": {
+                "contents": ["PRICE", "NAME", "STORE", "NUDGING", "CHIPS"],
+                "size": "MEDIUM",
+                "data": {
+                  "image": {
+                    "url": "https://d3ha2047wt6x28.cloudfront.net/MkHXaEm6-Jg/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwNTc3ZjU5OWU5ZWRkY2Y4N2IwYWQ5NDY3ODhlNzNjLmdpZg",
+                    "use_animation": true,
+                    "ratio": 1.2
+                  },
+                  "name": "[unisex] 칼텐 체크 배색 후드 코트 자켓",
+                  "price": "51,150",
+                  "has_ad_badge": false,
+                  "name_lines": 1,
+                  "discount_rate": "7%",
+                  "closed_reason": null,
+                  "image_badge": null,
+                  "image_badge_width": null,
+                  "image_badge_height": null,
+                  "image_badge_list": [],
+                  "chips": [
+                    {
+                      "meta": {
+                        "text_style": "body6",
+                        "text_color": "#FF5160",
+                        "bg_color": "#FFEFF2",
+                        "border_color": "#FFEFF2",
+                        "border_width": 1,
+                        "rounded_corner_radius": 2
+                      },
+                      "name": "첫구매 혜택",
+                      "type": "DITTO_TEXT"
+                    }
+                  ],
+                  "store_text": "바온",
+                  "nudging_text": "509개 구매중",
+                  "ranking": null,
+                  "actions": ["LIKE"],
+                  "discount_end_text": null,
+                  "top_nudging_text": null,
+                  "price_description": null,
+                  "today_delivery_order_deadline_time": null
+                }
+              }
+            }
+          }
+        ],
+        "footer": null
+      }
+    }
+  ],
+  "next_token": "eyJsIjogIkRlcGFydG1lbnRDYXRlZ29yeVJlYWx0aW1lUmFua0dlbmVyYXRvciIsICJuIjogImV5SnNZWE4wWDNOdWJ5STZJRFUwTXpFeU5EazNMQ0FpYkdGemRGOXBibVJsZUNJNklEUXdmUT09IiwgInAiOiB7ImRlcGFydG1lbnRfdHlwZSI6ICJDQVRFR09SWSIsICJjYXRlZ29yeV9zbm8iOiAyOTN9LCAiZCI6ICJDQVRFR09SWSIsICJwcmV2aW91c19zY3JlZW5fbmFtZSI6ICJPVkVSVklFVyIsICJjYXRlZ29yeV9zbm8iOiAyOTMsICJsb2FkX2luZGV4IjogM30=",
+  "view_event_channels": [
+    "firebase",
+    "amplitude",
+    "braze",
+    "ablylog",
+    "facebook",
+    "appsflyer"
+  ]
+}
