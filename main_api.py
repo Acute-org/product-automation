@@ -12,6 +12,7 @@ import numpy as np
 BASE_URL = "https://api.a-bly.com/api/v2/screens/SUB_CATEGORY_DEPARTMENT/"
 REVIEW_API_URL = "https://api.a-bly.com/api/v2/goods/{sno}/review_summary/"
 LEGAL_NOTICE_API_URL = "https://api.a-bly.com/api/v2/goods/{sno}/legal_notice/"
+PIPN_INFO_API_URL = "https://api.a-bly.com/api/v2/goods/{sno}/pipn_info/"
 DETAIL_API_URL = "https://api.a-bly.com/api/v3/goods/{sno}/detail/"
 OPTIONS_API_URL = "https://api.a-bly.com/api/v2/goods/{sno}/options/"
 BASIC_API_URL = "https://api.a-bly.com/api/v3/goods/{sno}/basic/"
@@ -295,6 +296,41 @@ def fetch_legal_notice_meta(client: httpx.Client, sno: int) -> dict:
     except Exception as e:
         print(f"  [!] 공시정보 조회 실패 (sno={sno}): {e}")
         return {}
+
+
+def fetch_pipn_info_meta(client: httpx.Client, sno: int) -> dict:
+    """PIPN Info API에서 메타(소재/제조국/색상 등) 가져오기"""
+    try:
+        response = client.get(PIPN_INFO_API_URL.format(sno=sno))
+        response.raise_for_status()
+        data = response.json()
+        pipn = data.get("product_info_provision_notice", {})
+        pipn_data = pipn.get("pipn_data", {})
+
+        fabric = pipn_data.get("fabric_description", {}).get("value")
+        country = pipn_data.get("country", {}).get("value")
+        color_md = pipn_data.get("color_description", {}).get("value")
+
+        return {
+            "color_md": color_md,
+            "fabric": fabric,
+            "country": country,
+        }
+    except Exception as e:
+        print(f"  [!] PIPN 정보 조회 실패 (sno={sno}): {e}")
+        return {}
+
+
+def fetch_product_meta(client: httpx.Client, sno: int) -> dict:
+    """PIPN Info API 우선, Legal Notice API fallback으로 메타정보 가져오기"""
+    pipn = fetch_pipn_info_meta(client, sno)
+    legal = fetch_legal_notice_meta(client, sno)
+
+    return {
+        "color_md": pipn.get("color_md") or legal.get("color_md"),
+        "fabric": pipn.get("fabric") or legal.get("fabric"),
+        "country": pipn.get("country") or legal.get("country"),
+    }
 
 
 def fetch_basic_meta(client: httpx.Client, sno: int) -> dict:
@@ -700,11 +736,11 @@ def enrich_product_details(products: list[dict]) -> None:
             sno = product["sno"]
             print(f"\n[{i}/{len(products)}] {product['name'][:40]}...")
 
-            # 공시정보(색상/소재/제조국)
-            legal = fetch_legal_notice_meta(client, sno)
-            product["colors"] = legal.get("color_md")
-            product["fabric"] = legal.get("fabric")
-            product["country"] = legal.get("country")
+            # 공시정보(색상/소재/제조국) - PIPN 우선, Legal Notice fallback
+            meta = fetch_product_meta(client, sno)
+            product["colors"] = meta.get("color_md")
+            product["fabric"] = meta.get("fabric")
+            product["country"] = meta.get("country")
             if product.get("colors"):
                 print(f"  🎨 색상(공시): {product['colors']}")
             if product.get("fabric"):
